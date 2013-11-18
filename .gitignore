@@ -1,3 +1,5 @@
+Kan.v11.suo
+
 
 Core/Core/bin/*
 Core/Core/obj/*
@@ -5,3 +7,7 @@ Core/Core/obj/*
 
 Specs/Core.Specs/bin/*
 Specs/Core.Specs/obj/*
+
+Messages/bin/*
+Messages/obj/*
+
