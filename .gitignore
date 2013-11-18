@@ -1,0 +1,7 @@
+
+Core/bin/*
+Core/obj/*
+
+
+Specs/Core.Specs/bin/*
+Specs/Core.Specs/obj/*
