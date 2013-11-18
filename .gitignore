@@ -1,6 +1,6 @@
 
-Core/bin/*
-Core/obj/*
+Core/Core/bin/*
+Core/Core/obj/*
 
 
 Specs/Core.Specs/bin/*
