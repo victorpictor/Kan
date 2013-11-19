@@ -1,0 +1,13 @@
+Kan.v11.suo
+Kan.sln.DotSettings.user
+
+Core/Core/bin/*
+Core/Core/obj/*
+
+
+Specs/Core.Specs/bin/*
+Specs/Core.Specs/obj/*
+
+Messages/bin/*
+Messages/obj/*
+
