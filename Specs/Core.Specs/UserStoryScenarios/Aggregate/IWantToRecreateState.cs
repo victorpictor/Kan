@@ -19,7 +19,7 @@ namespace Core.Specs.UserStoryScenarios.Aggregate
 
         protected override void When()
         {
-            userStoryState = new UserStoryState(new List<IEvent>() { new UserStoryCreated(id, name, description+" "), new UserStoryEstimated(id, storyPoints) });
+            userStoryState = new UserStoryState(new List<IEvent>() { new UserStoryCreated(id, name, description), new UserStoryEstimated(id, storyPoints) });
         }
 
         [Test]

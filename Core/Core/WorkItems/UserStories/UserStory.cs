@@ -28,7 +28,8 @@ namespace Core.WorkItems.UserStories
         public void Apply(IEvent @event)
         {
             Changes.Add(@event);
+            state.Mutate(@event);
         }
-
+        
     }
 }

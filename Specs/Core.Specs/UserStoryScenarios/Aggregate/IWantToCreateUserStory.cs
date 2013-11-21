@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Core.WorkItems.UserStories;
+using Messages.Markers;
 using Messages.UserStory;
 using NUnit.Framework;
 
@@ -11,15 +13,18 @@ namespace Core.Specs.UserStoryScenarios.Aggregate
         private MyUserStory us;
         private UserStoryState state;
 
+        private string name = "I want";
+        private string description = "description";
+
         protected override void Given()
         {
-            state = new UserStoryState(null);
+            state = new UserStoryState(new List<IEvent>());
             us = new MyUserStory(state);
         }
 
         protected override void When()
         {
-            us.Create("I want", "description");
+            us.Create(name, description);
         }
 
         [Test]
@@ -36,5 +41,20 @@ namespace Core.Specs.UserStoryScenarios.Aggregate
             Assert.IsInstanceOf<UserStoryCreated>(change);
         }
 
+        [Test]
+        public void ItShouldHaveUserStoryNameMutated()
+        {
+            var state = us.GetState();
+
+            Assert.AreEqual(name, state.Name, "Name should be set on mutation");
+        }
+
+        [Test]
+        public void ItShouldHaveUserStoryDescriptionMutated()
+        {
+            var state = us.GetState();
+
+            Assert.AreEqual(description, state.Description, "Desctiption should be set on mutation");
+        }
     }
 }

@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Core.WorkItems.UserStories;
+using Messages.Markers;
 using Messages.UserStory;
 using NUnit.Framework;
 
@@ -11,15 +13,17 @@ namespace Core.Specs.UserStoryScenarios.Aggregate
         private MyUserStory us;
         private UserStoryState state;
 
+        private int points = 2;
+
         protected override void Given()
         {
-            state = new UserStoryState(null);
+            state = new UserStoryState(new List<IEvent>());
             us = new MyUserStory(state);
         }
 
         protected override void When()
         {
-            us.Estimate(1, 2);
+            us.Estimate(1, points);
         }
 
         [Test]
@@ -29,11 +33,19 @@ namespace Core.Specs.UserStoryScenarios.Aggregate
         }
 
         [Test]
-        public void ItShouldHaveUserStoryCreatedChange()
+        public void ItShouldHaveUserStoryEstimatedChange()
         {
             var change = us.GetChanges().FirstOrDefault();
 
             Assert.IsInstanceOf<UserStoryEstimated>(change);
+        }
+
+        [Test]
+        public void ItShouldSetUserStoryPointsMutated()
+        {
+            var state = us.GetState();
+
+            Assert.AreEqual(points, state.Points,"User story points should be updated on estimation");
         }
 
     }

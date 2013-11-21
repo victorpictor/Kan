@@ -28,5 +28,10 @@ namespace Core.WorkItems.UserStories
         {
             Points = userStoryEstimated.Points;
         }
+
+        public void Mutate(IEvent @event)
+        {
+            When((dynamic)@event);
+        }
     }
 }
