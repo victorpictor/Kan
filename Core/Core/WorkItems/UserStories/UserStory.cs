@@ -16,8 +16,7 @@ namespace Core.WorkItems.UserStories
 
         public void Create(string name, string description)
         {
-            var id = 1;
-            Apply(new UserStoryCreated(id,name,description));
+            Apply(new UserStoryCreated(1,name,description));
         }
 
         public void Estimate(int id, int points)
