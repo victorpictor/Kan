@@ -25,7 +25,7 @@ namespace Core.Specs.UserStoryScenarios.Aggregate
         [Test]
         public void ItShouldSetNameDesctiptionWhenApplyingUserStoryCreated()
         {
-            Assert.AreEqual(id, userStoryState.Id, "Applying UserStoryCreated should set Id");
+            Assert.AreEqual(id, userStoryState.Identity.Id, "Applying UserStoryCreated should set Id");
             Assert.AreEqual(name, userStoryState.Name, "Applying UserStoryCreated should set name");
             Assert.AreEqual(description, userStoryState.Description, "Applying UserStoryCreated should set Description");
         }
@@ -34,7 +34,7 @@ namespace Core.Specs.UserStoryScenarios.Aggregate
         [Test]
         public void ItShouldSetStoryPointsWhenApplyingUserStoryEstimated()
         {
-            Assert.AreEqual(id, userStoryState.Id, "Applying UserStoryEstimated should have Id already set");
+            Assert.AreEqual(id, userStoryState.Identity.Id, "Applying UserStoryEstimated should have Id already set");
             Assert.AreEqual(storyPoints, userStoryState.Points,"Applying UserStoryEstimated should estimated points");
         }
 

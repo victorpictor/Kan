@@ -14,14 +14,14 @@ namespace Core.WorkItems.UserStories
             this.state = state;
         }
 
-        public void Create(string name, string description)
+        public void Create(UserStoryIdentity storyIdentity, string name, string description)
         {
-            Apply(new UserStoryCreated(1,name,description));
+            Apply(new UserStoryCreated(storyIdentity.Id,name,description));
         }
 
-        public void Estimate(int id, int points)
+        public void Estimate(UserStoryIdentity identity, int points)
         {
-            Apply(new UserStoryEstimated(id,points));
+            Apply(new UserStoryEstimated(identity.Id,points));
         }
 
         public void Apply(IEvent @event)

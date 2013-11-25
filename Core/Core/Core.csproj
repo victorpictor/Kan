@@ -42,6 +42,7 @@
     <Compile Include="Exceptions\NullIdentityException.cs" />
     <Compile Include="Exceptions\Throw.cs" />
     <Compile Include="Identity.cs" />
+    <Compile Include="IIdentityService.cs" />
     <Compile Include="WorkItems\UserStories\UserStory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WorkItems\UserStories\UserStoryService.cs" />

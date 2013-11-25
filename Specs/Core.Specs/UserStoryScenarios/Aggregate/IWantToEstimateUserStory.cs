@@ -12,6 +12,7 @@ namespace Core.Specs.UserStoryScenarios.Aggregate
     {
         private MyUserStory us;
         private UserStoryState state;
+        private UserStoryIdentity ui;
 
         private int points = 2;
 
@@ -19,11 +20,12 @@ namespace Core.Specs.UserStoryScenarios.Aggregate
         {
             state = new UserStoryState(new List<IEvent>());
             us = new MyUserStory(state);
+            ui = new UserStoryIdentity(1);
         }
 
         protected override void When()
         {
-            us.Estimate(1, points);
+            us.Estimate(ui, points);
         }
 
         [Test]

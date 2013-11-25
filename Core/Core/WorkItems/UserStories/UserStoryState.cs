@@ -4,9 +4,9 @@ using Messages.UserStory;
 
 namespace Core.WorkItems.UserStories
 {
-    public class UserIdentity : Identity<int>
+    public class UserStoryIdentity : Identity<int>
     {
-        public UserIdentity(int id)
+        public UserStoryIdentity(int id)
             : base(id)
         {
             Tag = "uagg";
@@ -15,7 +15,7 @@ namespace Core.WorkItems.UserStories
 
     public class UserStoryState: UserStoryStateChanges
     {
-        public UserIdentity Id { get; private set; }
+        public UserStoryIdentity Identity { get; private set; }
         public string Name { get; private set;}
         public string Description { get; private set; }
 
@@ -28,7 +28,7 @@ namespace Core.WorkItems.UserStories
 
         public void When(UserStoryCreated userStoryCreated)
         {
-            Id = new UserIdentity(userStoryCreated.Id);
+            Identity = new UserStoryIdentity(userStoryCreated.Id);
             Name = userStoryCreated.Name;
             Description = userStoryCreated.Description;
         }
