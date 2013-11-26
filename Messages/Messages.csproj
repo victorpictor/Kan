@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Identities\Exceptions.cs" />
+    <Compile Include="Identities\Identity.cs" />
     <Compile Include="IPublishEvents.cs" />
     <Compile Include="ISendCommands.cs" />
     <Compile Include="Markers\ICommand.cs" />
@@ -49,6 +51,7 @@
     <Compile Include="UserStory\UserStoryCreated.cs" />
     <Compile Include="UserStory\IUserStoryApplicationService.cs" />
     <Compile Include="UserStory\UserStoryEstimated.cs" />
+    <Compile Include="Identities\UserStoryIdentity.cs" />
     <Compile Include="UserStory\UserStoryStateChanges.cs" />
   </ItemGroup>
   <ItemGroup />

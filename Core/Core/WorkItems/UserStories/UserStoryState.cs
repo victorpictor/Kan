@@ -1,17 +1,11 @@
 ﻿using System.Collections.Generic;
+using Messages.Identities;
 using Messages.Markers;
 using Messages.UserStory;
 
 namespace Core.WorkItems.UserStories
 {
-    public class UserStoryIdentity : Identity<int>
-    {
-        public UserStoryIdentity(int id)
-            : base(id)
-        {
-            Tag = "uagg";
-        }
-    }
+   
 
     public class UserStoryState: UserStoryStateChanges
     {

@@ -1,4 +1,5 @@
 ﻿using System;
+using Messages.Identities;
 using Messages.Markers;
 using Messages.UserStory;
 
@@ -14,7 +15,7 @@ namespace Core.WorkItems.UserStories
         }
 
 
-        public void Update(ICommand command, Action<UserStory> action)
+        public void Update(ICommand<UserStoryIdentity> command, Action<UserStory> action)
         {
 
         }
@@ -22,6 +23,8 @@ namespace Core.WorkItems.UserStories
         public void When(CreateUserStory createUserStory)
         {
             var id = identityService.Generate<UserStoryIdentity>();
+
+            Update(createUserStory, a => a.Create(id, createUserStory.Name, createUserStory.Description));
         }
     }
 }

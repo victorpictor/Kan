@@ -2,6 +2,6 @@
 {
     public interface IIdentityService
     {
-        Identity<T> Generate<T>();
+        T Generate<T>();
     }
 }
