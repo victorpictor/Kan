@@ -4,9 +4,7 @@
     {
         public Identity(T id)
         {
-            if (id == null)
-                Throw.NullIdentityException();
-
+            Contracts.EnsureNotNull(id, "id value cannot be null");
             Id = id;
         }
 
