@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Messages;
 using Messages.Identities;
 using Messages.Markers;
 using Messages.UserStory;
@@ -9,6 +10,8 @@ namespace Core.WorkItems.UserStories
     public class UserStoryService: IUserStoryApplicationService
     {
         private IIdentityService identityService;
+        private IEventStore eventStore;
+        private IPublishEvents eventsPublisher;
 
         public UserStoryService(IIdentityService identityService)
         {
@@ -16,24 +19,23 @@ namespace Core.WorkItems.UserStories
         }
 
 
-        public void Update(ICommand<UserStoryIdentity> command, Action<UserStory> action)
+        public void Update(ICommand<UserStoryIdentity> command, Action<UserStory> methodToCall)
         {
-            var changes = new List<IEvent>();
+            var changes = eventStore.GetStream(command.Identity);
 
             var userStoryState = new UserStoryState(changes);
             var userStory = new UserStory(userStoryState);
-            action(userStory);
+            methodToCall(userStory);
 
-            // append to stream
-            // publish events
-            
+            eventStore.AppendToStream(command.Identity,userStory.Changes);
+            eventsPublisher.Publish(userStory.Changes);
         }
 
         public void When(CreateUserStory createUserStory)
         {
             Contracts.EnsureNotNullCommand(createUserStory, "Create user strory command was null");
-            Contracts.EnsureString(createUserStory.Name, string.IsNullOrWhiteSpace, "Name was expected to be a string");
-            Contracts.EnsureString(createUserStory.Description, string.IsNullOrWhiteSpace, "Description was expected to be a string");
+            Contracts.EnsureString(createUserStory.Name, string.IsNullOrWhiteSpace, "User story name was expected to be text");
+            Contracts.EnsureString(createUserStory.Description, string.IsNullOrWhiteSpace, "User story description was expected to be text");
            
             var id = identityService.Generate<UserStoryIdentity>();
 

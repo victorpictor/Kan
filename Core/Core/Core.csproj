@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IEventStore.cs" />
     <Compile Include="IIdentityService.cs" />
     <Compile Include="WorkItems\UserStories\UserStory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
