@@ -5,11 +5,6 @@ namespace Messages.Identities
 {
     public class Throw
     {
-        public static void NullIdentityException()
-        {
-            throw new NullIdentityException();
-        }
-
         public static void NullIdentityException(string messages)
         {
             throw new NullIdentityException(messages);
@@ -34,7 +29,7 @@ namespace Messages.Identities
 
     public class Contracts
     {
-        public static void EnsureNotNull(object o, string message)
+        public static void EnsureIdentityNotNull(object o, string message)
         {
             if (o == null)
             {

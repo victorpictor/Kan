@@ -13,9 +13,14 @@ namespace Core.WorkItems.UserStories
         private IEventStore eventStore;
         private IPublishEvents eventsPublisher;
 
-        public UserStoryService(IIdentityService identityService)
+        public UserStoryService(
+            IIdentityService identityService, 
+            IPublishEvents eventsPublisher, 
+            IEventStore eventStore)
         {
             this.identityService = identityService;
+            this.eventsPublisher = eventsPublisher;
+            this.eventStore = eventStore;
         }
 
 
@@ -33,7 +38,7 @@ namespace Core.WorkItems.UserStories
 
         public void When(CreateUserStory createUserStory)
         {
-            Contracts.EnsureNotNullCommand(createUserStory, "Create user strory command was null");
+            Contracts.EnsureNotNullCommand(createUserStory, "Create user story command was null");
             Contracts.EnsureString(createUserStory.Name, string.IsNullOrWhiteSpace, "User story name was expected to be text");
             Contracts.EnsureString(createUserStory.Description, string.IsNullOrWhiteSpace, "User story description was expected to be text");
            
@@ -44,8 +49,8 @@ namespace Core.WorkItems.UserStories
 
         public void When(EstimateUserStory estimateUserStory)
         {
-            Contracts.EnsureNotNullCommand(estimateUserStory, "Estimate user strory command was null");
-            Contracts.EnsureNotNull(estimateUserStory.Identity, "Estimate user story identity was null");
+            Contracts.EnsureNotNullCommand(estimateUserStory, "Estimate user story command was null");
+            Contracts.EnsureIdentityNotNull(estimateUserStory.Identity, "Estimate user story identity was null");
             Contracts.EnsureInt(estimateUserStory.Points, i => i > 0, "Estimation value was less than 0");
 
             var id = new UserStoryIdentity(estimateUserStory.Identity.Id);

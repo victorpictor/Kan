@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Moq">
+      <HintPath>..\..\lib\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\..\lib\nunit.framework.dll</HintPath>
     </Reference>
@@ -48,6 +51,9 @@
     <Compile Include="UserStoryScenarios\Aggregate\IWantToEstimateUserStory.cs" />
     <Compile Include="UserStoryScenarios\Aggregate\IWantToRecreateState.cs" />
     <Compile Include="UserStoryScenarios\Aggregate\MyUserStory.cs" />
+    <Compile Include="UserStoryScenarios\Service\IWantToCreateUserStory\InvalidRequest.cs" />
+    <Compile Include="UserStoryScenarios\Service\IWantToEstimateUserStory\IWantToEstimateUserStory.cs" />
+    <Compile Include="UserStoryScenarios\Service\UserStoryServiceSpecification.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Core\Core.csproj">
@@ -59,6 +65,7 @@
       <Name>Messages</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

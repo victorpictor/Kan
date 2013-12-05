@@ -5,12 +5,10 @@ using Messages.UserStory;
 
 namespace Core.WorkItems.UserStories
 {
-   
-
-    public class UserStoryState: UserStoryStateChanges
+    public class UserStoryState : UserStoryStateChanges
     {
         public UserStoryIdentity Identity { get; private set; }
-        public string Name { get; private set;}
+        public string Name { get; private set; }
         public string Description { get; private set; }
 
         public int Points { get; private set; }

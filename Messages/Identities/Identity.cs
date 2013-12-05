@@ -4,7 +4,7 @@
     {
         protected Identity(T id)
         {
-            Contracts.EnsureNotNull(id, "id value cannot be null");
+            Contracts.EnsureIdentityNotNull(id, "id value cannot be null");
             Id = id;
         }
 
