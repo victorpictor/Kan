@@ -5,9 +5,10 @@ namespace Messages.UserStory
 {
     public class EstimateUserStory: ICommand<UserStoryIdentity>
     {
-        public EstimateUserStory(int id, int points)
+        public EstimateUserStory(UserStoryIdentity id, int points)
         {
-            Identity = new UserStoryIdentity(id);   
+            Identity = id;
+            Points = points;
         }
 
         public UserStoryIdentity Identity { get; private set; }

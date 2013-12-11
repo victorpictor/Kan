@@ -8,6 +8,6 @@ namespace Messages.UserStory
         public string Name { get; set; }
         public string Description { get; set; }
 
-        public UserStoryIdentity Identity { get; private set; }
+        public UserStoryIdentity Identity { get; set; }
     }
 }

@@ -55,7 +55,7 @@ namespace Messages.Identities
 
         public static void EnsureInt(int i, Func<int, bool> action, string message)
         {
-            if (action(i))
+            if (!action(i))
             {
                 Throw.IntValueException(message);
             }

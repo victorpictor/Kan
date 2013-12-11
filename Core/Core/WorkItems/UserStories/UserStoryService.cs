@@ -9,16 +9,13 @@ namespace Core.WorkItems.UserStories
 {
     public class UserStoryService: IUserStoryApplicationService
     {
-        private IIdentityService identityService;
         private IEventStore eventStore;
         private IPublishEvents eventsPublisher;
 
         public UserStoryService(
-            IIdentityService identityService, 
             IPublishEvents eventsPublisher, 
             IEventStore eventStore)
         {
-            this.identityService = identityService;
             this.eventsPublisher = eventsPublisher;
             this.eventStore = eventStore;
         }
@@ -41,10 +38,8 @@ namespace Core.WorkItems.UserStories
             Contracts.EnsureNotNullCommand(createUserStory, "Create user story command was null");
             Contracts.EnsureString(createUserStory.Name, string.IsNullOrWhiteSpace, "User story name was expected to be text");
             Contracts.EnsureString(createUserStory.Description, string.IsNullOrWhiteSpace, "User story description was expected to be text");
-           
-            var id = identityService.Generate<UserStoryIdentity>();
 
-            Update(createUserStory, a => a.Create(id, createUserStory.Name, createUserStory.Description));
+            Update(createUserStory, a => a.Create(createUserStory.Identity, createUserStory.Name, createUserStory.Description));
         }
 
         public void When(EstimateUserStory estimateUserStory)
@@ -53,9 +48,7 @@ namespace Core.WorkItems.UserStories
             Contracts.EnsureIdentityNotNull(estimateUserStory.Identity, "Estimate user story identity was null");
             Contracts.EnsureInt(estimateUserStory.Points, i => i > 0, "Estimation value was less than 0");
 
-            var id = new UserStoryIdentity(estimateUserStory.Identity.Id);
-
-            Update(estimateUserStory, a => a.Estimate(id, estimateUserStory.Points));
+            Update(estimateUserStory, a => a.Estimate(estimateUserStory.Identity, estimateUserStory.Points));
         }
     }
 }

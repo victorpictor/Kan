@@ -1,5 +1,8 @@
-﻿using Core.WorkItems.UserStories;
+﻿using System.Collections.Generic;
+using Core.WorkItems.UserStories;
 using Messages;
+using Messages.Identities;
+using Messages.Markers;
 using Moq;
 
 namespace Core.Specs.UserStoryScenarios.Service
@@ -8,17 +11,21 @@ namespace Core.Specs.UserStoryScenarios.Service
     {
         protected UserStoryService service;
 
-        protected Mock<IIdentityService> identityService;
         protected Mock<IEventStore> eventStore;
         protected Mock<IPublishEvents> eventsPublisher;
 
+        protected UserStoryIdentity Identity;
+
         protected override void Given()
         {
-            identityService = new Mock<IIdentityService>();
+            Identity = new UserStoryIdentity(1);
+
             eventStore = new Mock<IEventStore>();
+            eventStore.Setup(es => es.GetStream(Identity)).Returns(new List<IEvent>());
+
             eventsPublisher = new Mock<IPublishEvents>();
 
-            service = new UserStoryService(identityService.Object, eventsPublisher.Object, eventStore.Object);
+            service = new UserStoryService(eventsPublisher.Object, eventStore.Object);
         }
     }
 }
