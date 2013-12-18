@@ -41,12 +41,16 @@
   <ItemGroup>
     <Compile Include="Identities\Exceptions.cs" />
     <Compile Include="Identities\Identity.cs" />
+    <Compile Include="Identities\QueueIdentity.cs" />
     <Compile Include="IPublishEvents.cs" />
     <Compile Include="ISendCommands.cs" />
     <Compile Include="Markers\ICommand.cs" />
     <Compile Include="Markers\IEvent.cs" />
     <Compile Include="Markers\IMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queue\QueueCreated.cs" />
+    <Compile Include="Queue\UserStoryDequeued.cs" />
+    <Compile Include="Queue\UserStoryQueued.cs" />
     <Compile Include="UserStory\CreateUserStory.cs" />
     <Compile Include="UserStory\EstimateUserStory.cs" />
     <Compile Include="UserStory\UserStoryCreated.cs" />
