@@ -15,19 +15,25 @@ namespace Core.Board.Queues
 
         public QueueState(List<IEvent> events)
         {
+            InQueue = new List<UserStoryIdentity>();
             events.ForEach(e => When((dynamic)e));
         }
 
         public void When(QueueCreated queueCreated)
         {
+            Identity = new QueueIdentity(queueCreated.Id);
+            Name = queueCreated.Name;
+            WipLimit = queueCreated.WipLimit;
         }
 
         public void When(UserStoryQueued userStoryQueued)
         {
+            InQueue.Add(new UserStoryIdentity(userStoryQueued.Id));
         }
 
         public void When(UserStoryDequeued userStoryQueued)
         {
+            InQueue.RemoveAll(us => us.Get() == new UserStoryIdentity(userStoryQueued.Id).Get());
         }
     }
 }
