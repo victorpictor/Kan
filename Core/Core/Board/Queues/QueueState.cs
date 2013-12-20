@@ -35,5 +35,10 @@ namespace Core.Board.Queues
         {
             InQueue.RemoveAll(us => us.Get() == new UserStoryIdentity(userStoryQueued.Id).Get());
         }
+
+        public void Mutate(IEvent e)
+        {
+            When((dynamic)e);
+        }
     }
 }

@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
-using Core.WorkItems.UserStories;
+using Core.Board.Queues;
 using Messages.Markers;
 
-namespace Core.Specs.UserStoryScenarios.Aggregate
+namespace Core.Specs.QueueScenarios.Aggregate
 {
-    public class MyUserStory: UserStory
+    public class MyQueue: Queue
     {
-        public MyUserStory(UserStoryState state) : base(state)
+        public MyQueue(QueueState state) : base(state)
         {
         }
 
@@ -15,7 +15,7 @@ namespace Core.Specs.UserStoryScenarios.Aggregate
             return Changes;
         }
 
-        public UserStoryState GetState()
+        public QueueState GetState()
         {
             return state;
         }
