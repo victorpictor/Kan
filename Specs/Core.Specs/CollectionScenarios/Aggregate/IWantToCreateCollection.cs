@@ -1,53 +1,53 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Core.Board.Queues;
+using Core.Board.Collections;
+using Messages.Collection;
 using Messages.Identities;
 using Messages.Markers;
-using Messages.Queue;
 using NUnit.Framework;
 
-namespace Core.Specs.QueueScenarios.Aggregate
+namespace Core.Specs.CollectionScenarios.Aggregate
 {
     [TestFixture]
-    public class IWantToCreateQueue:Specification
+    public class IWantToCreateCollection:Specification
     {
-        private MyQueue queue;
-        private QueueState queueState;
-        private QueueIdentity id;
+        private MyCollection collection;
+        private CollectionState collectionState;
+        private CollectionIdentity id;
 
         private string name = "In progress";
         private int wipLimit = 5;
 
         protected override void Given()
         {
-            id = new QueueIdentity(1);
-            queueState = new QueueState(new List<IEvent>());
-            queue = new MyQueue(queueState);                 
+            id = new CollectionIdentity(1);
+            collectionState = new CollectionState(new List<IEvent>());
+            collection = new MyCollection(collectionState);                 
         }
 
         protected override void When()
         {
-            queue.Create(id,name, wipLimit);
+            collection.Create(id,name, wipLimit);
         }
 
         [Test]
         public void ItShouldHaveOneChange()
         {
-            Assert.AreEqual(1, queue.GetChanges().Count);
+            Assert.AreEqual(1, collection.GetChanges().Count);
         }
 
         [Test]
         public void ItShouldHaveQueueCreatedChange()
         {
-            var change = queue.GetChanges().FirstOrDefault();
+            var change = collection.GetChanges().FirstOrDefault();
 
-            Assert.IsInstanceOf<QueueCreated>(change);
+            Assert.IsInstanceOf<CollectionCreated>(change);
         }
 
         [Test]
         public void ItShouldHaveUserStoryNameMutated()
         {
-            var state = queue.GetState();
+            var state = collection.GetState();
 
             Assert.AreEqual(name, state.Name, "Name should be set on mutation");
         }
@@ -55,7 +55,7 @@ namespace Core.Specs.QueueScenarios.Aggregate
         [Test]
         public void ItShouldHaveWipMutated()
         {
-            var state = queue.GetState();
+            var state = collection.GetState();
 
             Assert.AreEqual(wipLimit, state.WipLimit, "WipLimit should be set on mutation");
         }

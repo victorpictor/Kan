@@ -1,37 +1,37 @@
 ﻿using System.Collections.Generic;
+using Messages.Collection;
 using Messages.Identities;
 using Messages.Markers;
-using Messages.Queue;
 
-namespace Core.Board.Queues
+namespace Core.Board.Collections
 {
-    public class QueueState
+    public class CollectionState
     {
-        public QueueIdentity Identity { get; private set; }
+        public CollectionIdentity Identity { get; private set; }
         public string Name { get; private set; }
         public int WipLimit { get; private set; }
 
         public List<UserStoryIdentity> InQueue { get; private set; }
 
-        public QueueState(List<IEvent> events)
+        public CollectionState(List<IEvent> events)
         {
             InQueue = new List<UserStoryIdentity>();
             events.ForEach(e => When((dynamic)e));
         }
 
-        public void When(QueueCreated queueCreated)
+        public void When(CollectionCreated collectionCreated)
         {
-            Identity = new QueueIdentity(queueCreated.Id);
-            Name = queueCreated.Name;
-            WipLimit = queueCreated.WipLimit;
+            Identity = new CollectionIdentity(collectionCreated.Id);
+            Name = collectionCreated.Name;
+            WipLimit = collectionCreated.WipLimit;
         }
 
-        public void When(UserStoryQueued userStoryQueued)
+        public void When(UserStoryAdded userStoryAdded)
         {
-            InQueue.Add(new UserStoryIdentity(userStoryQueued.Id));
+            InQueue.Add(new UserStoryIdentity(userStoryAdded.Id));
         }
 
-        public void When(UserStoryDequeued userStoryQueued)
+        public void When(UserStoryRemoved userStoryQueued)
         {
             InQueue.RemoveAll(us => us.Get() == new UserStoryIdentity(userStoryQueued.Id).Get());
         }

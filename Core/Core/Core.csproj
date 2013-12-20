@@ -39,9 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Board\Queues\Queue.cs" />
-    <Compile Include="Board\Queues\QueueService.cs" />
-    <Compile Include="Board\Queues\QueueState.cs" />
+    <Compile Include="Board\Collections\Collection.cs" />
+    <Compile Include="Board\Collections\CollectionService.cs" />
+    <Compile Include="Board\Collections\CollectionState.cs" />
     <Compile Include="IEventStore.cs" />
     <Compile Include="IIdentityService.cs" />
     <Compile Include="WorkItems\UserStories\UserStory.cs" />

@@ -1,23 +1,23 @@
 ﻿using System.Collections.Generic;
+using Messages.Collection;
 using Messages.Identities;
 using Messages.Markers;
-using Messages.Queue;
 
-namespace Core.Board.Queues
+namespace Core.Board.Collections
 {
-    public class Queue
+    public class Collection
     {
-        protected QueueState state;
+        protected CollectionState state;
         public List<IEvent> Changes = new List<IEvent>();
 
-        public Queue(QueueState state)
+        public Collection(CollectionState state)
         {
             this.state = state;
         }
 
-        public void Create(QueueIdentity identity, string name, int wipLimit)
+        public void Create(CollectionIdentity identity, string name, int wipLimit)
         {
-            var created = new QueueCreated(identity.Id, name, wipLimit);
+            var created = new CollectionCreated(identity.Id, name, wipLimit);
 
             Apply(created);
 

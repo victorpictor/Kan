@@ -1,12 +1,12 @@
 ﻿using Messages.Markers;
 
-namespace Messages.Queue
+namespace Messages.Collection
 {
-    public class UserStoryQueued: IEvent
+    public class UserStoryAdded: IEvent
     {
         public int Id;
 
-        public UserStoryQueued(int id)
+        public UserStoryAdded(int id)
         {
             Id = id;
         }

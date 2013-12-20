@@ -1,14 +1,14 @@
 ﻿using Messages.Markers;
 
-namespace Messages.Queue
+namespace Messages.Collection
 {
-    public class QueueCreated : IEvent
+    public class CollectionCreated : IEvent
     {
         public int Id;
         public string Name;
         public int WipLimit;
 
-        public QueueCreated(int id, string name, int wipLimit)
+        public CollectionCreated(int id, string name, int wipLimit)
         {
             Id = id;
             Name = name;

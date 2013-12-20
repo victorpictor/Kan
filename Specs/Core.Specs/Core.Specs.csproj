@@ -45,9 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="QueueScenarios\Aggregate\IWantToCreateQueue.cs" />
-    <Compile Include="QueueScenarios\Aggregate\MyQueue.cs" />
-    <Compile Include="QueueScenarios\Aggregate\State\IWantToRecreateState.cs" />
+    <Compile Include="CollectionScenarios\Aggregate\IWantToCreateCollection.cs" />
+    <Compile Include="CollectionScenarios\Aggregate\MyCollection.cs" />
+    <Compile Include="CollectionScenarios\Aggregate\State\IWantToRecreateState.cs" />
     <Compile Include="Specification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserStoryScenarios\Aggregate\IWantToCreateUserStory.cs" />

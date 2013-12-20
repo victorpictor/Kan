@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
-using Core.Board.Queues;
+using Core.Board.Collections;
 using Messages.Markers;
 
-namespace Core.Specs.QueueScenarios.Aggregate
+namespace Core.Specs.CollectionScenarios.Aggregate
 {
-    public class MyQueue: Queue
+    public class MyCollection: Collection
     {
-        public MyQueue(QueueState state) : base(state)
+        public MyCollection(CollectionState state) : base(state)
         {
         }
 
@@ -15,7 +15,7 @@ namespace Core.Specs.QueueScenarios.Aggregate
             return Changes;
         }
 
-        public QueueState GetState()
+        public CollectionState GetState()
         {
             return state;
         }

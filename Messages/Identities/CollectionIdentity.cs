@@ -1,8 +1,8 @@
 ﻿namespace Messages.Identities
 {
-    public class QueueIdentity: Identity<int>, IIdentity
+    public class CollectionIdentity: Identity<int>, IIdentity
     {
-        public QueueIdentity(int id)
+        public CollectionIdentity(int id)
             : base(id)
         {
             Tag = "qagg";
