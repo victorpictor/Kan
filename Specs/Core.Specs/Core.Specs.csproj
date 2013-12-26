@@ -45,7 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CollectionScenarios\Aggregate\IWantToAddUserStoryToCollection.cs" />
     <Compile Include="CollectionScenarios\Aggregate\IWantToCreateCollection.cs" />
+    <Compile Include="CollectionScenarios\Aggregate\IWantToRemoveUserStoryFromCollection.cs" />
     <Compile Include="CollectionScenarios\Aggregate\MyCollection.cs" />
     <Compile Include="CollectionScenarios\Aggregate\State\IWantToRecreateState.cs" />
     <Compile Include="Specification.cs" />
