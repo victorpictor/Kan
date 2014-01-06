@@ -2,6 +2,7 @@
 using System.Linq;
 using Core.Board.Collections;
 using Messages.Collection;
+using Messages.Collection.Events;
 using Messages.Identities;
 using Messages.Markers;
 using NUnit.Framework;

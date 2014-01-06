@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Messages.Collection;
+using Messages.Collection.Events;
 using Messages.Identities;
 using Messages.Markers;
 

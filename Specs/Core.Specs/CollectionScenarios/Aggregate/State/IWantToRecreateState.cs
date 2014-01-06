@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Core.Board.Collections;
 using Messages.Collection;
+using Messages.Collection.Events;
 using Messages.Markers;
 using NUnit.Framework;
 

@@ -2,6 +2,7 @@
 using Messages.Identities;
 using Messages.Markers;
 using Messages.UserStory;
+using Messages.UserStory.Events;
 
 namespace Core.WorkItems.UserStories
 {

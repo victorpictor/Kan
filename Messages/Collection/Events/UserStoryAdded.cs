@@ -1,6 +1,6 @@
 ﻿using Messages.Markers;
 
-namespace Messages.Collection
+namespace Messages.Collection.Events
 {
     public class UserStoryAdded: IEvent
     {

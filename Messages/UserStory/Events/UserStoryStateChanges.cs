@@ -1,4 +1,4 @@
-﻿namespace Messages.UserStory
+﻿namespace Messages.UserStory.Events
 {
     public interface UserStoryStateChanges
     {

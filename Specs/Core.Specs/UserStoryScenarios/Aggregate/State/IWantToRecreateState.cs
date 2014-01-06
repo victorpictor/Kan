@@ -2,6 +2,7 @@
 using Core.WorkItems.UserStories;
 using Messages.Markers;
 using Messages.UserStory;
+using Messages.UserStory.Events;
 using NUnit.Framework;
 
 namespace Core.Specs.UserStoryScenarios.Aggregate
