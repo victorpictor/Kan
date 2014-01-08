@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Core.Board.Collections;
-using Core.WorkItems.UserStories;
 using Messages;
 using Messages.Identities;
 using Messages.Markers;
@@ -29,6 +28,6 @@ namespace Core.Specs.CollectionScenarios
             eventsPublisher = new Mock<IPublishEvents>();
 
             service = new CollectionService(eventStore.Object, eventsPublisher.Object);
-        }
+        } 
     }
 }

@@ -1,52 +1,40 @@
 ﻿using Messages.Collection.Commands;
 using Messages.Identities;
-using Messages.UserStory;
 using NUnit.Framework;
 
 namespace Core.Specs.CollectionScenarios.Service.IWantToCreateCollection
 {
+
     [TestFixture]
-    public class WithNullCommand : CollectionServiceSpecification
+    public class IWantToCreateCollection : CollectionServiceSpecification
     {
         [Test]
         [ExpectedException(typeof(NullCommandException), ExpectedMessage = "Create collection command was null")]
-        public void ItShouldThrowNullComandException()
+        public void WithNullCommandItShouldThrowNullComandException()
         {
             service.When((CreateCollection)null);
         }
-    }
 
-
-    [TestFixture]
-    public class WithNullName : CollectionServiceSpecification
-    {
         [Test]
         [ExpectedException(typeof(StringValueException), ExpectedMessage = "Collection name was null or empty")]
-        public void ItShouldThrowStringValueException()
+        public void WithNullNameItShouldThrowStringValueException()
         {
-            service.When(new CreateCollection(){Name = null});
+            service.When(new CreateCollection() { Name = null });
         }
-    }
 
-    [TestFixture]
-    public class WithEmptyName : CollectionServiceSpecification
-    {
         [Test]
         [ExpectedException(typeof(StringValueException), ExpectedMessage = "Collection name was null or empty")]
-        public void ItShouldThrowStringValueException()
+        public void WithEmptyNameItShouldThrowStringValueException()
         {
             service.When(new CreateCollection() { Name = string.Empty });
         }
-    }
 
-    [TestFixture]
-    public class WithNegativeWipLimit : CollectionServiceSpecification
-    {
         [Test]
         [ExpectedException(typeof(IntValueException), ExpectedMessage = "Wip value was less than 0")]
-        public void ItShouldThrowIntValueException()
+        public void WithNegativeWipLimitItShouldThrowIntValueException()
         {
-            service.When(new CreateCollection() { Name = "Wip", WipLimit = -1});
+            service.When(new CreateCollection() { Name = "Wip", WipLimit = -1 });
         }
     }
+   
 }
