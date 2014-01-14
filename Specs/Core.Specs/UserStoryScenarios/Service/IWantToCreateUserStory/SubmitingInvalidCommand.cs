@@ -6,59 +6,43 @@ namespace Core.Specs.UserStoryScenarios.Service.IWantToCreateUserStory
 {
 
     [TestFixture]
-    public class WithNullCommand : UserStoryServiceSpecification
+    public class SubmitingInvalidCommand : UserStoryServiceSpecification
     {
         [Test]
         [ExpectedException(typeof(NullCommandException), ExpectedMessage = "Create user story command was null")]
-        public void ItShouldThrowNullComandException()
+        public void WithNullCommandItShouldThrowNullComandException()
         {
             service.When((CreateUserStory)null);
         }
-    }
 
-    [TestFixture]
-    public class WithEmptyUserStoryName : UserStoryServiceSpecification
-    {
         [Test]
         [ExpectedException(typeof(StringValueException), ExpectedMessage = "User story name was expected to be text")]
-        public void ItShouldThrowStringValueException()
+        public void WithEmptyUserStoryNameItShouldThrowStringValueException()
         {
-            service.When(new CreateUserStory(){Name = ""});
+            service.When(new CreateUserStory() { Name = "" });
         }
-    }
 
-    [TestFixture]
-    public class WithNullUserStoryName : UserStoryServiceSpecification
-    {
         [Test]
         [ExpectedException(typeof(StringValueException), ExpectedMessage = "User story name was expected to be text")]
-        public void ItShouldThrowStringValueException()
+        public void WithNullUserStoryNameItShouldThrowStringValueException()
         {
             service.When(new CreateUserStory() { Name = null });
         }
-    }
 
-
-    [TestFixture]
-    public class WithEmptyUserStoryDescription : UserStoryServiceSpecification
-    {
         [Test]
         [ExpectedException(typeof(StringValueException), ExpectedMessage = "User story description was expected to be text")]
-        public void ItShouldThrowStringValueException()
+        public void WithEmptyUserStoryDescriptionItShouldThrowStringValueException()
         {
             service.When(new CreateUserStory() { Name = "I want", Description = "" });
         }
-    }
 
-    [TestFixture]
-    public class WithNullUserStoryDescription : UserStoryServiceSpecification
-    {
         [Test]
         [ExpectedException(typeof(StringValueException), ExpectedMessage = "User story description was expected to be text")]
-        public void ItShouldThrowStringValueException()
+        public void WithNullUserStoryDescriptionItShouldThrowStringValueException()
         {
             service.When(new CreateUserStory() { Name = "I want", Description = null });
         }
-    }
+     }
+    
 
 }
