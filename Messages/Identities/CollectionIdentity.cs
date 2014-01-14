@@ -8,9 +8,9 @@
             Tag = "qagg";
         }
 
-        public string Get()
+        public int Get()
         {
-            return Id.ToString();
+            return Id;
         }
     }
 }

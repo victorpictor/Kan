@@ -14,6 +14,6 @@
 
     public interface IIdentity
     {
-        string Get();
+        int Get();
     }
 }

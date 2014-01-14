@@ -52,6 +52,8 @@
     <Compile Include="CollectionScenarios\Aggregate\State\IWantToRecreateState.cs" />
     <Compile Include="CollectionScenarios\CollectionServiceSpecification.cs" />
     <Compile Include="CollectionScenarios\Service\IWantToCreateCollection\SubmitingInvalidCommand.cs" />
+    <Compile Include="Infrastructure\InMemoryEventStore.cs" />
+    <Compile Include="Infrastructure\InMemoryPublisher.cs" />
     <Compile Include="Specification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserStoryScenarios\Aggregate\IWantToCreateUserStory.cs" />

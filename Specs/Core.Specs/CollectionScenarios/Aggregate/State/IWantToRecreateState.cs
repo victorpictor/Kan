@@ -37,7 +37,7 @@ namespace Core.Specs.CollectionScenarios.Aggregate.State
         }
 
         [Test]
-        public void ItShouldHave1UserStoryQueueing2AndDequeueing1()
+        public void ItShouldHave1UserStoryInCollection()
         {
             Assert.AreEqual(1,collectionState.InQueue.Count);
         }

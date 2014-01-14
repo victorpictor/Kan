@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Core.Specs.Infrastructure;
+using Core.Specs.UserStoryScenarios.Aggregate;
 using Core.WorkItems.UserStories;
 using Messages;
 using Messages.Identities;
@@ -11,21 +13,20 @@ namespace Core.Specs.UserStoryScenarios.Service
     {
         protected UserStoryService service;
 
-        protected Mock<IEventStore> eventStore;
-        protected Mock<IPublishEvents> eventsPublisher;
+        protected InMemoryEventStore eventStore;
+        protected InMemoryPublisher eventsPublisher;
 
         protected UserStoryIdentity Identity;
-
+       
         protected override void Given()
         {
             Identity = new UserStoryIdentity(1);
 
-            eventStore = new Mock<IEventStore>();
-            eventStore.Setup(es => es.GetStream(Identity)).Returns(new List<IEvent>());
+            eventStore = new InMemoryEventStore();
+            
+            eventsPublisher = new InMemoryPublisher();
 
-            eventsPublisher = new Mock<IPublishEvents>();
-
-            service = new UserStoryService(eventsPublisher.Object, eventStore.Object);
+            service = new UserStoryService(eventsPublisher, eventStore);      
         }
     }
 }
