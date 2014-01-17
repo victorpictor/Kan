@@ -3,7 +3,6 @@ using System.Linq;
 using Core.WorkItems.UserStories;
 using Messages.Identities;
 using Messages.Markers;
-using Messages.UserStory;
 using Messages.UserStory.Events;
 using NUnit.Framework;
 

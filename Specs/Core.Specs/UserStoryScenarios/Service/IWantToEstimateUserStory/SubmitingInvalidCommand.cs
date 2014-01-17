@@ -5,36 +5,28 @@ using NUnit.Framework;
 namespace Core.Specs.UserStoryScenarios.Service
 {
     [TestFixture]
-    public class SubmitingNullEstimateUserStory : UserStoryServiceSpecification
+    public class SubmitingInvalidCommand : UserStoryServiceSpecification
     {
         [Test]
-        [ExpectedException(typeof(NullCommandException), ExpectedMessage = "Estimate user story command was null")]
-        public void ItShouldThrowNullComandException()
+        [ExpectedException(typeof (NullCommandException), ExpectedMessage = "Estimate user story command was null")]
+        public void SubmitingNullEstimateUserStoryItShouldThrowNullComandException()
         {
-            service.When((EstimateUserStory)null);
+            service.When((EstimateUserStory) null);
         }
-    }
 
-
-    [TestFixture]
-    public class SubmitingNullIdentity : UserStoryServiceSpecification
-    {
         [Test]
-        [ExpectedException(typeof(NullIdentityException), ExpectedMessage = "Estimate user story identity was null")]
-        public void ItShouldThrowNullIdentityException()
+        [ExpectedException(typeof (NullIdentityException), ExpectedMessage = "Estimate user story identity was null")]
+        public void SubmitingNullIdentityItShouldThrowNullIdentityException()
         {
             service.When(new EstimateUserStory(null, 0));
         }
-    }
 
-    [TestFixture]
-    public class SubmitingNegativeEstimationValue : UserStoryServiceSpecification
-    {
         [Test]
-        [ExpectedException(typeof(IntValueException), ExpectedMessage = "Estimation value was less than 0")]
-        public void ItShouldThrowIntValueException()
+        [ExpectedException(typeof (IntValueException), ExpectedMessage = "Estimation value was less than 0")]
+        public void SubmitingNegativeEstimationValueItShouldThrowIntValueException()
         {
             service.When(new EstimateUserStory(Identity, -1));
         }
     }
+
 }
