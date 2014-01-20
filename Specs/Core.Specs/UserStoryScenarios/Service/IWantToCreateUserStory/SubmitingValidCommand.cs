@@ -28,7 +28,6 @@ namespace Core.Specs.UserStoryScenarios.Service.IWantToCreateUserStory
             Assert.AreEqual(1, eventStore.TimesItGotStream, "Expected to call get stream by Id once");
         }
 
-
         [Test]
         public void ItShouldAppendEventsToStream()
         {

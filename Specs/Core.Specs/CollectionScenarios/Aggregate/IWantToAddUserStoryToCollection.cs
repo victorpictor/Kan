@@ -36,8 +36,7 @@ namespace Core.Specs.CollectionScenarios.Aggregate
         {
             Assert.AreEqual(1, collection.Changes.Count);
         }
-
-
+        
         [Test]
         public void ItShouldRegisterTheChangeUserStoryAdded()
         {
