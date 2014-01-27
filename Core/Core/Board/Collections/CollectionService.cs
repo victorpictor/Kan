@@ -36,6 +36,7 @@ namespace Core.Board.Collections
             Contracts.EnsureString(createCollection.Name,string.IsNullOrWhiteSpace,  "Collection name was null or empty");
             Contracts.EnsureInt(createCollection.WipLimit, i => i >= 0, "Wip value was less than 0");
            
+            Update(createCollection, c => c.Create(createCollection.Identity, createCollection.Name, createCollection.WipLimit));
         }
 
         public void When(AddUserStory createCollection)

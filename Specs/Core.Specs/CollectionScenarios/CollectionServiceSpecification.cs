@@ -1,20 +1,18 @@
-﻿using System.Collections.Generic;
-using Core.Board.Collections;
-using Messages;
+﻿using Core.Board.Collections;
+using Core.Specs.Infrastructure;
 using Messages.Identities;
-using Messages.Markers;
-using Moq;
 using NUnit.Framework;
 
 namespace Core.Specs.CollectionScenarios
 {
     [TestFixture]
-    public class CollectionServiceSpecification: Specification
+    public class CollectionServiceSpecification : Specification
     {
         protected CollectionService service;
 
-        protected Mock<IEventStore> eventStore;
-        protected Mock<IPublishEvents> eventsPublisher;
+        protected InMemoryEventStore eventStore;
+        protected InMemoryPublisher eventsPublisher;
+
 
         protected CollectionIdentity Identity;
 
@@ -22,12 +20,12 @@ namespace Core.Specs.CollectionScenarios
         {
             Identity = new CollectionIdentity(1);
 
-            eventStore = new Mock<IEventStore>();
-            eventStore.Setup(es => es.GetStream(Identity)).Returns(new List<IEvent>());
+            eventStore = new InMemoryEventStore();
+            eventsPublisher = new InMemoryPublisher();
 
-            eventsPublisher = new Mock<IPublishEvents>();
+            service = new CollectionService(eventStore, eventsPublisher);
+        }
 
-            service = new CollectionService(eventStore.Object, eventsPublisher.Object);
-        } 
     }
+
 }
