@@ -30,7 +30,7 @@ namespace Core.Specs.CollectionScenarios.Service.IWantToCreateCollection
         }
 
         [Test]
-        [ExpectedException(typeof(IntValueException), ExpectedMessage = "Wip value was less than 0")]
+        [ExpectedException(typeof(IntValueException), ExpectedMessage = "Wip value was less than or equal to 0")]
         public void WithNegativeWipLimitItShouldThrowIntValueException()
         {
             service.When(new CreateCollection() { Name = "Wip", WipLimit = -1 });

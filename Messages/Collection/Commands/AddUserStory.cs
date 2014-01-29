@@ -5,6 +5,7 @@ namespace Messages.Collection.Commands
 {
     public class AddUserStory: ICommand<CollectionIdentity>
     {
-        public CollectionIdentity Identity { get; private set; }
+        public CollectionIdentity Identity { get; set; }
+        public UserStoryIdentity UserStoryIdentity { get; set; }
     }
 }

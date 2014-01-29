@@ -51,6 +51,9 @@
     <Compile Include="CollectionScenarios\Aggregate\MyCollection.cs" />
     <Compile Include="CollectionScenarios\Aggregate\State\IWantToRecreateState.cs" />
     <Compile Include="CollectionScenarios\CollectionServiceSpecification.cs" />
+    <Compile Include="CollectionScenarios\Service\ICallUpdate\WhenCommandIsValid.cs" />
+    <Compile Include="CollectionScenarios\Service\IWantToAddUserStoryToCollection\SubmitingInvalidCommand.cs" />
+    <Compile Include="CollectionScenarios\Service\IWantToAddUserStoryToCollection\SubmitingValidCommand.cs" />
     <Compile Include="CollectionScenarios\Service\IWantToCreateCollection\SubmitingInvalidCommand.cs" />
     <Compile Include="CollectionScenarios\Service\IWantToCreateCollection\SubmitingValidCommand.cs" />
     <Compile Include="Infrastructure\InMemoryEventStore.cs" />

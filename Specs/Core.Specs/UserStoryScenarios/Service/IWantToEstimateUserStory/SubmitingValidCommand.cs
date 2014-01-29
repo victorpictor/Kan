@@ -4,7 +4,7 @@ using Messages.UserStory;
 using Messages.UserStory.Events;
 using NUnit.Framework;
 
-namespace Core.Specs.UserStoryScenarios.Service
+namespace Core.Specs.UserStoryScenarios.Service.IWantToEstimateUserStory
 {
 
     [TestFixture]

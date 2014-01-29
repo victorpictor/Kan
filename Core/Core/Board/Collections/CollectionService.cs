@@ -9,8 +9,9 @@ namespace Core.Board.Collections
 {
     public class CollectionService: ICollectionApplicationService
     {
-        private IEventStore eventStore;
-        private IPublishEvents eventsPublisher;
+       
+        protected IEventStore eventStore;
+        protected IPublishEvents eventsPublisher;
 
         public CollectionService(IEventStore eventStore, IPublishEvents eventsPublisher)
         {
@@ -18,7 +19,7 @@ namespace Core.Board.Collections
             this.eventsPublisher = eventsPublisher;
         }
 
-        public void Update(ICommand<CollectionIdentity> command, Action<Collection> methodToCall)
+       public virtual void Update(ICommand<CollectionIdentity> command, Action<Collection> methodToCall)
         {
             var changes = eventStore.GetStream(command.Identity);
             
@@ -34,17 +35,21 @@ namespace Core.Board.Collections
         {
             Contracts.EnsureNotNullCommand(createCollection, "Create collection command was null");
             Contracts.EnsureString(createCollection.Name,string.IsNullOrWhiteSpace,  "Collection name was null or empty");
-            Contracts.EnsureInt(createCollection.WipLimit, i => i >= 0, "Wip value was less than 0");
+            Contracts.EnsureInt(createCollection.WipLimit, i => i >= 0, "Wip value was less than or equal to 0");
            
             Update(createCollection, c => c.Create(createCollection.Identity, createCollection.Name, createCollection.WipLimit));
         }
 
-        public void When(AddUserStory createCollection)
+        public void When(AddUserStory addtoCollection)
         {
-            throw new System.NotImplementedException();
+            Contracts.EnsureNotNullCommand(addtoCollection, "Add to collection command was null");
+            Contracts.EnsureIdentityNotNull(addtoCollection.Identity, "User collection identity name was null");
+            Contracts.EnsureIdentityNotNull(addtoCollection.UserStoryIdentity, "User story identity name was null");
+
+            Update(addtoCollection, c => c.Add(addtoCollection.UserStoryIdentity));
         }
 
-        public void When(RemoveUserStory createUserStory)
+        public void When(RemoveUserStory removeFromCollection)
         {
             throw new System.NotImplementedException();
         }
