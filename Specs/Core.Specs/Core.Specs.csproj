@@ -64,6 +64,7 @@
     <Compile Include="UserStoryScenarios\Aggregate\IWantToEstimateUserStory.cs" />
     <Compile Include="UserStoryScenarios\Aggregate\State\IWantToRecreateState.cs" />
     <Compile Include="UserStoryScenarios\Aggregate\MyUserStory.cs" />
+    <Compile Include="UserStoryScenarios\Service\ICallUpdate\WhenCommandIsValid.cs" />
     <Compile Include="UserStoryScenarios\Service\IWantToCreateUserStory\SubmitingInvalidCommand.cs" />
     <Compile Include="UserStoryScenarios\Service\IWantToCreateUserStory\SubmitingValidCommand.cs" />
     <Compile Include="UserStoryScenarios\Service\IWantToEstimateUserStory\SubmitingInvalidCommand.cs" />

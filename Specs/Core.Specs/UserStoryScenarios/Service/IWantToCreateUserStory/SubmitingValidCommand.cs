@@ -23,17 +23,13 @@ namespace Core.Specs.UserStoryScenarios.Service.IWantToCreateUserStory
         }
 
         [Test]
-        public void ItShouldGetEventStreamByIdentity()
+        public void ItShouldPublishUserStoryCreatedEvent()
         {
-            Assert.AreEqual(1, eventStore.TimesItGotStream, "Expected to call get stream by Id once");
-        }
+            var e = eventsPublisher.Published().FirstOrDefault();
 
-        [Test]
-        public void ItShouldAppendEventsToStream()
-        {
-            Assert.AreEqual(1, eventStore.TimesItAppendedToStream, "Expected to call append to stream by Id once");
+            Assert.IsInstanceOf<UserStoryCreated>(e, "Expected to be published UserStoryCreated event");
         }
-
+       
         [Test]
         public void ItShouldAppend1RaisedEventToStream()
         {
@@ -41,23 +37,9 @@ namespace Core.Specs.UserStoryScenarios.Service.IWantToCreateUserStory
         }
 
         [Test]
-        public void ItShouldPublishEvents()
-        {
-            Assert.AreEqual(1, eventsPublisher.TimesItPublishedEvents, "Expected to call publish events");
-        }
-
-        [Test]
         public void ItShouldPublish1Event()
         {
             Assert.AreEqual(1, eventsPublisher.PublishedEventsCount(), "Expected to publish one event");
-        }
-
-        [Test]
-        public void ItShouldPublishUserStoryCreatedEvent()
-        {
-            var e = eventsPublisher.Published().FirstOrDefault();
-
-            Assert.IsInstanceOf<UserStoryCreated>(e, "Expected to be published UserStoryCreated event");
         }
 
     }
