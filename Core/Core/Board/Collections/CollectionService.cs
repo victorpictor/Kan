@@ -43,15 +43,19 @@ namespace Core.Board.Collections
         public void When(AddUserStory addtoCollection)
         {
             Contracts.EnsureNotNullCommand(addtoCollection, "Add to collection command was null");
-            Contracts.EnsureIdentityNotNull(addtoCollection.Identity, "User collection identity name was null");
-            Contracts.EnsureIdentityNotNull(addtoCollection.UserStoryIdentity, "User story identity name was null");
+            Contracts.EnsureIdentityNotNull(addtoCollection.Identity, "Collection identity name was null");
+            Contracts.EnsureIdentityNotNull(addtoCollection.UserStoryIdentity, "User story identity name was null when adding user story");
 
             Update(addtoCollection, c => c.Add(addtoCollection.UserStoryIdentity));
         }
 
         public void When(RemoveUserStory removeFromCollection)
         {
-            throw new System.NotImplementedException();
+            Contracts.EnsureNotNullCommand(removeFromCollection, "Remove user story from collection command was null");
+            Contracts.EnsureIdentityNotNull(removeFromCollection.Identity, "Collection identity name was null");
+            Contracts.EnsureIdentityNotNull(removeFromCollection.UserStoryIdentity, "User story identity name was null when removing user story");
+
+            Update(removeFromCollection, c => c.Remove(removeFromCollection.UserStoryIdentity));
         }
     }
 }

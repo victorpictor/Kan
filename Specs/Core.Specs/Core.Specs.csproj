@@ -56,6 +56,8 @@
     <Compile Include="CollectionScenarios\Service\IWantToAddUserStoryToCollection\SubmitingValidCommand.cs" />
     <Compile Include="CollectionScenarios\Service\IWantToCreateCollection\SubmitingInvalidCommand.cs" />
     <Compile Include="CollectionScenarios\Service\IWantToCreateCollection\SubmitingValidCommand.cs" />
+    <Compile Include="CollectionScenarios\Service\IWantToRemoveUserStoryFromCollection\SubmitingInvalidCommand.cs" />
+    <Compile Include="CollectionScenarios\Service\IWantToRemoveUserStoryFromCollection\SubmitingValidCommand.cs" />
     <Compile Include="Infrastructure\InMemoryEventStore.cs" />
     <Compile Include="Infrastructure\InMemoryPublisher.cs" />
     <Compile Include="Specification.cs" />
