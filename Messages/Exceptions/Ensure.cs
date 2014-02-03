@@ -1,7 +1,7 @@
 ﻿using System;
 using Messages.Markers;
 
-namespace Messages.Identities
+namespace Messages.Exception
 {
     public class Throw
     {
@@ -62,7 +62,7 @@ namespace Messages.Identities
         }
     }
 
-    public class NullIdentityException : Exception
+    public class NullIdentityException : System.Exception
     {
         public NullIdentityException()
         {
@@ -74,7 +74,7 @@ namespace Messages.Identities
         }
     }
 
-    public class NullCommandException : Exception
+    public class NullCommandException : System.Exception
     {
         public NullCommandException(string message)
             : base(message)
@@ -82,7 +82,7 @@ namespace Messages.Identities
         }
     }
 
-    public class IntValueException : Exception
+    public class IntValueException : System.Exception
     {
         public IntValueException(string message)
             : base(message)
@@ -90,7 +90,7 @@ namespace Messages.Identities
         }
     }
 
-    public class StringValueException : Exception
+    public class StringValueException : System.Exception
     {
         public StringValueException(string message)
             : base(message)

@@ -1,4 +1,5 @@
 ﻿using Messages.Collection.Commands;
+using Messages.Exception;
 using Messages.Identities;
 using NUnit.Framework;
 

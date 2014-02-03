@@ -1,4 +1,6 @@
-﻿namespace Messages.Identities
+﻿using Messages.Exception;
+
+namespace Messages.Identities
 {
     public abstract class Identity<T>
     {

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Messages.Collection.Events;
+using Messages.Exception;
 using Messages.Identities;
 using Messages.Markers;
 
@@ -24,8 +25,10 @@ namespace Core.Board.Collections
 
         public void Add(UserStoryIdentity identity)
         {
-            var added = new UserStoryAdded(identity.Id);
+            if (state.UserStoriesCount() == state.WipLimit)
+                Domain.ExceedingCollectionLimit();
 
+            var added = new UserStoryAdded(identity.Id);
             Apply(added);
         }
 

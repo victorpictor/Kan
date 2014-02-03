@@ -14,6 +14,11 @@ namespace Core.Board.Collections
 
         public List<UserStoryIdentity> InQueue { get; private set; }
 
+        public int UserStoriesCount()
+        {
+            return InQueue.Count;
+        }
+
         public CollectionState(List<IEvent> events)
         {
             InQueue = new List<UserStoryIdentity>();

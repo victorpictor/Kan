@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Messages;
+using Messages.Exception;
 using Messages.Identities;
 using Messages.Markers;
 using Messages.UserStory;

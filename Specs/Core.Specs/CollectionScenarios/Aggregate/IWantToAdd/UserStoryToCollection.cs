@@ -1,16 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Core.Board.Collections;
-using Messages.Collection;
 using Messages.Collection.Events;
 using Messages.Identities;
 using Messages.Markers;
 using NUnit.Framework;
 
-namespace Core.Specs.CollectionScenarios.Aggregate
+namespace Core.Specs.CollectionScenarios.Aggregate.IWantToAdd
 {
     [TestFixture]
-    public class IWantToAddUserStoryToCollection: Specification
+    public class UserStoryToCollection: Specification
     {
         private MyCollection collection;
         private CollectionState collectionState;

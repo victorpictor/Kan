@@ -1,4 +1,5 @@
-﻿using Messages.Identities;
+﻿using Messages.Exception;
+using Messages.Identities;
 using Messages.UserStory;
 using NUnit.Framework;
 

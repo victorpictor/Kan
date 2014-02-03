@@ -43,7 +43,8 @@
     <Compile Include="Collection\Commands\CreateCollection.cs" />
     <Compile Include="Collection\ICollectionApplicationService.cs" />
     <Compile Include="Collection\Commands\RemoveUserStory.cs" />
-    <Compile Include="Identities\Exceptions.cs" />
+    <Compile Include="Exceptions\Domain.cs" />
+    <Compile Include="Exceptions\Ensure.cs" />
     <Compile Include="Identities\Identity.cs" />
     <Compile Include="Identities\CollectionIdentity.cs" />
     <Compile Include="IPublishEvents.cs" />
