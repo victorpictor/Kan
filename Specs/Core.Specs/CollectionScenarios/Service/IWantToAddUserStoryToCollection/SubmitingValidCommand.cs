@@ -15,7 +15,7 @@ namespace Core.Specs.CollectionScenarios.Service.IWantToAddUserStoryToCollection
         {
             base.Given();
 
-            eventStore.SetUpTheStream(Identity, new IEvent[] { });
+            eventStore.SetUpTheStream(Identity, new IEvent[] { new CollectionCreated(1,"To do",5)});
         }
 
         protected override void When()
@@ -26,7 +26,7 @@ namespace Core.Specs.CollectionScenarios.Service.IWantToAddUserStoryToCollection
         [Test]
         public void ItShouldAppend1RaisedEventToStream()
         {
-            Assert.AreEqual(1, eventStore.EventsInStream(Identity), "Expected to append one event to stream");
+            Assert.AreEqual(2, eventStore.EventsInStream(Identity), "Expected to append one event to stream");
         }
 
         [Test]

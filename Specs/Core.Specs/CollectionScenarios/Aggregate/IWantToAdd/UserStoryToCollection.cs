@@ -21,7 +21,7 @@ namespace Core.Specs.CollectionScenarios.Aggregate.IWantToAdd
             id = new CollectionIdentity(1);
             usId = new UserStoryIdentity(2);
 
-            collectionState = new CollectionState(new List<IEvent>());
+            collectionState = new CollectionState(new List<IEvent>(){new CollectionCreated(1,"To do", 5)});
             collection = new MyCollection(collectionState);
         }
 
