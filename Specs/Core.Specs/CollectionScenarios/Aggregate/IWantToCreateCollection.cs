@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Core.Board.Collections;
-using Messages.Collection;
+using Core.Specs.Infrastructure;
 using Messages.Collection.Events;
-using Messages.Identities;
 using Messages.Markers;
 using NUnit.Framework;
 
@@ -14,21 +13,21 @@ namespace Core.Specs.CollectionScenarios.Aggregate
     {
         private MyCollection collection;
         private CollectionState collectionState;
-        private CollectionIdentity id;
+        private IdentityGenerator identities;
 
         private string name = "In progress";
         private int wipLimit = 5;
 
         protected override void Given()
         {
-            id = new CollectionIdentity(1);
+            identities = new IdentityGenerator();
             collectionState = new CollectionState(new List<IEvent>());
             collection = new MyCollection(collectionState);                 
         }
 
         protected override void When()
         {
-            collection.Create(id,name, wipLimit);
+            collection.Create(identities,name, wipLimit);
         }
 
         [Test]

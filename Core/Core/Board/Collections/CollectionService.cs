@@ -13,11 +13,16 @@ namespace Core.Board.Collections
        
         protected IEventStore eventStore;
         protected IPublishEvents eventsPublisher;
+        protected IDomainIdentityService identities;
 
-        public CollectionService(IEventStore eventStore, IPublishEvents eventsPublisher)
+        public CollectionService(
+            IEventStore eventStore, 
+            IPublishEvents eventsPublisher, 
+            IDomainIdentityService identities)
         {
             this.eventStore = eventStore;
             this.eventsPublisher = eventsPublisher;
+            this.identities = identities;
         }
 
        public virtual void Update(ICommand<CollectionIdentity> command, Action<Collection> methodToCall)
@@ -38,7 +43,7 @@ namespace Core.Board.Collections
             Contracts.EnsureString(createCollection.Name,string.IsNullOrWhiteSpace,  "Collection name was null or empty");
             Contracts.EnsureInt(createCollection.WipLimit, i => i >= 0, "Wip value was less than or equal to 0");
            
-            Update(createCollection, c => c.Create(createCollection.Identity, createCollection.Name, createCollection.WipLimit));
+            Update(createCollection, c => c.Create(identities, createCollection.Name, createCollection.WipLimit));
         }
 
         public void When(AddUserStory addtoCollection)

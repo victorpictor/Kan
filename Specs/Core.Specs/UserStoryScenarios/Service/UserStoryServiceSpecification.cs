@@ -10,6 +10,8 @@ namespace Core.Specs.UserStoryScenarios.Service
 
         protected InMemoryEventStore eventStore;
         protected InMemoryPublisher eventsPublisher;
+        protected IdentityGenerator identities;
+
 
         protected UserStoryIdentity Identity;
        
@@ -18,10 +20,10 @@ namespace Core.Specs.UserStoryScenarios.Service
             Identity = new UserStoryIdentity(1);
 
             eventStore = new InMemoryEventStore();
-            
             eventsPublisher = new InMemoryPublisher();
+            identities = new IdentityGenerator();
 
-            service = new UserStoryService(eventsPublisher, eventStore);      
+            service = new UserStoryService(eventsPublisher, eventStore, identities);      
         }
     }
 }

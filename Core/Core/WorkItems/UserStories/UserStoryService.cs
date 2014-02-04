@@ -13,13 +13,16 @@ namespace Core.WorkItems.UserStories
     {
         private IEventStore eventStore;
         private IPublishEvents eventsPublisher;
+        protected IDomainIdentityService identities;
 
         public UserStoryService(
             IPublishEvents eventsPublisher, 
-            IEventStore eventStore)
+            IEventStore eventStore,
+            IDomainIdentityService identities)
         {
             this.eventsPublisher = eventsPublisher;
             this.eventStore = eventStore;
+            this.identities = identities;
         }
 
 

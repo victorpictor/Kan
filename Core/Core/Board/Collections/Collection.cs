@@ -21,9 +21,11 @@ namespace Core.Board.Collections
             return state.Identity;
         }
 
-        public void Create(CollectionIdentity identity, string name, int wipLimit)
+        public void Create(IDomainIdentityService identities, string name, int wipLimit)
         {
-            var created = new CollectionCreated(identity.Id, name, wipLimit);
+            var id = identities.Generate();
+
+            var created = new CollectionCreated(id, name, wipLimit);
 
             Apply(created);
         }

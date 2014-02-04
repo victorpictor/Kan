@@ -15,7 +15,7 @@ namespace Core.Specs.CollectionScenarios.Service.IWantToRemoveUserStoryFromColle
         {
             base.Given();
 
-            eventStore.SetUpTheStream(Identity, new IEvent[] { });
+            eventStore.SetUpTheStream(Identity, new IEvent[] { new CollectionCreated(1,"to do", 5),  });
         }
 
         protected override void When()
@@ -24,9 +24,9 @@ namespace Core.Specs.CollectionScenarios.Service.IWantToRemoveUserStoryFromColle
         }
         
         [Test]
-        public void ItShouldAppend1RaisedEventToStream()
+        public void ItShouldAppend1RaisedEventToExisting1ToStream()
         {
-            Assert.AreEqual(1, eventStore.EventsInStream(Identity), "Expected to append one event to stream");
+            Assert.AreEqual(2, eventStore.EventsInStream(Identity), "Expected to append one event to stream");
         }
 
         [Test]

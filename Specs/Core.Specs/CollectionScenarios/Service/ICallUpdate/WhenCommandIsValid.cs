@@ -1,4 +1,5 @@
-﻿using Messages.Identities;
+﻿using Messages.Collection.Events;
+using Messages.Identities;
 using Messages.Markers;
 using Moq;
 using NUnit.Framework;
@@ -17,7 +18,7 @@ namespace Core.Specs.CollectionScenarios.Service.ICallUpdate
             validCommand = new Mock<ICommand<CollectionIdentity>>();
             validCommand.Setup(vc => vc.Identity).Returns(new CollectionIdentity(1));
 
-            eventStore.SetUpTheStream(Identity, new IEvent[] { });
+            eventStore.SetUpTheStream(Identity, new IEvent[] { new CollectionCreated(1,"to to",5) });
         }
 
         protected override void When()
