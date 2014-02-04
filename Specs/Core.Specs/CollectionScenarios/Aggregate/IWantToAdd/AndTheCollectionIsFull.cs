@@ -18,10 +18,10 @@ namespace Core.Specs.CollectionScenarios.Aggregate.IWantToAdd
 
         protected override void Given()
         {
-            id = new CollectionIdentity(1);
-            usId = new UserStoryIdentity(3);
+            id = new CollectionIdentity("1");
+            usId = new UserStoryIdentity("3");
 
-            collectionState = new CollectionState(new List<IEvent>(){new CollectionCreated(1,"To Do", 1), new UserStoryAdded(2)});
+            collectionState = new CollectionState(new List<IEvent>(){new CollectionCreated("1","To Do", 1), new UserStoryAdded("2")});
             collection = new MyCollection(collectionState);
         }
 

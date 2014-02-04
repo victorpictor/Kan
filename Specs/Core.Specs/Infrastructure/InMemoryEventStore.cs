@@ -7,7 +7,7 @@ namespace Core.Specs.Infrastructure
 {
     public class InMemoryEventStore: IEventStore
     {
-        private Dictionary<int, List<IEvent>> stream = new Dictionary<int, List<IEvent>>();
+        private Dictionary<string, List<IEvent>> stream = new Dictionary<string, List<IEvent>>();
 
         public int TimesItGotStream = 0;
         public int TimesItAppendedToStream = 0;

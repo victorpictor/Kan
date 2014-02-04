@@ -16,9 +16,9 @@ namespace Core.Specs.CollectionScenarios.Service.ICallUpdate
             base.Given();
 
             validCommand = new Mock<ICommand<CollectionIdentity>>();
-            validCommand.Setup(vc => vc.Identity).Returns(new CollectionIdentity(1));
+            validCommand.Setup(vc => vc.Identity).Returns(new CollectionIdentity("1"));
 
-            eventStore.SetUpTheStream(Identity, new IEvent[] { new CollectionCreated(1,"to to",5) });
+            eventStore.SetUpTheStream(Identity, new IEvent[] { new CollectionCreated("1","to to",5) });
         }
 
         protected override void When()

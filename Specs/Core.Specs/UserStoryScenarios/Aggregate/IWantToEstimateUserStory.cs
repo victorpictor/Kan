@@ -21,7 +21,7 @@ namespace Core.Specs.UserStoryScenarios.Aggregate
         {
             state = new UserStoryState(new List<IEvent>());
             us = new MyUserStory(state);
-            ui = new UserStoryIdentity(1);
+            ui = new UserStoryIdentity("1");
         }
 
         protected override void When()

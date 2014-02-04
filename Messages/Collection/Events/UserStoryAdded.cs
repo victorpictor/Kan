@@ -4,9 +4,9 @@ namespace Messages.Collection.Events
 {
     public class UserStoryAdded: IEvent
     {
-        public int Id;
+        public string Id;
 
-        public UserStoryAdded(int id)
+        public UserStoryAdded(string id)
         {
             Id = id;
         }

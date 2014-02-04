@@ -16,6 +16,6 @@ namespace Messages.Identities
 
     public interface IIdentity
     {
-        int Get();
+        string Get();
     }
 }

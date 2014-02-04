@@ -17,7 +17,7 @@ namespace Core.Specs.UserStoryScenarios.Service
        
         protected override void Given()
         {
-            Identity = new UserStoryIdentity(1);
+            Identity = new UserStoryIdentity("1");
 
             eventStore = new InMemoryEventStore();
             eventsPublisher = new InMemoryPublisher();

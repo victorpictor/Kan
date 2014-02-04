@@ -26,7 +26,7 @@ namespace Core.Specs.CollectionScenarios.Service.IWantToAddUserStoryToCollection
         [ExpectedException(typeof(NullIdentityException), ExpectedMessage = "User story identity name was null when adding user story")]
         public void WithNullUserStoryIdentityItShouldThrowNullIdentityException()
         {
-            service.When(new AddUserStory { Identity = new CollectionIdentity(1) });
+            service.When(new AddUserStory { Identity = new CollectionIdentity("1") });
         }
     }
 }

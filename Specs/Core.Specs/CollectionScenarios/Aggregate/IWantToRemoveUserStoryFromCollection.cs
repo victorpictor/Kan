@@ -17,8 +17,8 @@ namespace Core.Specs.CollectionScenarios.Aggregate
 
         protected override void Given()
         {
-            id = new CollectionIdentity(1);
-            usId = new UserStoryIdentity(2);
+            id = new CollectionIdentity("1");
+            usId = new UserStoryIdentity("2");
 
             collectionState = new CollectionState(new List<IEvent>(){new UserStoryAdded(usId.Id)});
             collection = new MyCollection(collectionState);
@@ -47,8 +47,8 @@ namespace Core.Specs.CollectionScenarios.Aggregate
 
         protected override void Given()
         {
-            id = new CollectionIdentity(1);
-            usId = new UserStoryIdentity(2);
+            id = new CollectionIdentity("1");
+            usId = new UserStoryIdentity("2");
 
             collectionState = new CollectionState(new List<IEvent>() { new UserStoryAdded(usId.Id) });
             collection = new MyCollection(collectionState);
@@ -56,7 +56,7 @@ namespace Core.Specs.CollectionScenarios.Aggregate
 
         protected override void When()
         {
-            collection.Remove(new UserStoryIdentity(3));
+            collection.Remove(new UserStoryIdentity("3"));
         }
 
         [Test]

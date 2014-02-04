@@ -15,12 +15,12 @@ namespace Core.Specs.CollectionScenarios.Service.IWantToAddUserStoryToCollection
         {
             base.Given();
 
-            eventStore.SetUpTheStream(Identity, new IEvent[] { new CollectionCreated(1,"To do",5)});
+            eventStore.SetUpTheStream(Identity, new IEvent[] { new CollectionCreated("1","To do",5)});
         }
 
         protected override void When()
         {
-            service.When(new AddUserStory {Identity = Identity, UserStoryIdentity =  new UserStoryIdentity(1)});
+            service.When(new AddUserStory {Identity = Identity, UserStoryIdentity =  new UserStoryIdentity("1")});
         }
         
         [Test]

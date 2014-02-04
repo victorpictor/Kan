@@ -1,14 +1,14 @@
 ﻿namespace Messages.Identities
 {
-    public class UserStoryIdentity : Identity<int>, IIdentity
+    public class UserStoryIdentity : Identity<string>, IIdentity
     {
-        public UserStoryIdentity(int id)
+        public UserStoryIdentity(string id)
             : base(id)
         {
             Tag = "uagg";
         }
 
-        public int Get()
+        public string Get()
         {
             return Id;
         }

@@ -18,7 +18,7 @@ namespace Core.Specs.CollectionScenarios
 
         protected override void Given()
         {
-            Identity = new CollectionIdentity(1);
+            Identity = new CollectionIdentity("1");
 
             eventStore = new InMemoryEventStore();
             eventsPublisher = new InMemoryPublisher();

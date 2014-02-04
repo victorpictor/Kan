@@ -16,7 +16,7 @@ namespace Core.Specs.UserStoryScenarios.Service.ICallUpdate
             base.Given();
 
             validCommand = new Mock<ICommand<UserStoryIdentity>>();
-            validCommand.Setup(vc => vc.Identity).Returns(new UserStoryIdentity(1));
+            validCommand.Setup(vc => vc.Identity).Returns(new UserStoryIdentity("1"));
 
             eventStore.SetUpTheStream(Identity, new IEvent[] { });
         }

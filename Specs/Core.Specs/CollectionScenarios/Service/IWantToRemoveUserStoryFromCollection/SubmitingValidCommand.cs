@@ -15,12 +15,12 @@ namespace Core.Specs.CollectionScenarios.Service.IWantToRemoveUserStoryFromColle
         {
             base.Given();
 
-            eventStore.SetUpTheStream(Identity, new IEvent[] { new CollectionCreated(1,"to do", 5),  });
+            eventStore.SetUpTheStream(Identity, new IEvent[] { new CollectionCreated("1","to do", 5),  });
         }
 
         protected override void When()
         {
-            service.When(new RemoveUserStory() {Identity = Identity, UserStoryIdentity =  new UserStoryIdentity(1)});
+            service.When(new RemoveUserStory() {Identity = Identity, UserStoryIdentity =  new UserStoryIdentity("1")});
         }
         
         [Test]

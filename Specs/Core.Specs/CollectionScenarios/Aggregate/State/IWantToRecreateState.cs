@@ -13,13 +13,13 @@ namespace Core.Specs.CollectionScenarios.Aggregate.State
         private CollectionState collectionState;
 
         private List<IEvent> stream;
-        private int id = 1;
+        private string id = "1";
         private int wipLimit = 3;
         private string name = "to do";
 
         protected override void Given()
         {
-            stream = new List<IEvent>(){ new CollectionCreated(id,name, wipLimit), new UserStoryAdded(id),new UserStoryAdded(2), new UserStoryRemoved(id) };
+            stream = new List<IEvent>(){ new CollectionCreated(id,name, wipLimit), new UserStoryAdded(id),new UserStoryAdded("2"), new UserStoryRemoved(id) };
         }
 
         protected override void When()

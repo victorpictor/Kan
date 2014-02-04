@@ -4,11 +4,11 @@ namespace Messages.UserStory.Events
 {
     public class UserStoryCreated:IEvent
     {
-        public int Id;
+        public string Id;
         public string Name;
         public string Description;
 
-        public UserStoryCreated(int id, string name, string description)
+        public UserStoryCreated(string id, string name, string description)
         {
             Id = id;
             Name = name;

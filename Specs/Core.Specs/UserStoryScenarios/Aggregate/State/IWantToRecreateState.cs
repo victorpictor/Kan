@@ -13,7 +13,7 @@ namespace Core.Specs.UserStoryScenarios.Aggregate
 
         private UserStoryState userStoryState;
 
-        private int id = 1;
+        private string id = "1";
         private string name = "User story";
         private string description = "description";
         private int storyPoints = 5;

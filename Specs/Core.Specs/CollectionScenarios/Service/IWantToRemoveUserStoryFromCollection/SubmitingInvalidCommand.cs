@@ -26,7 +26,7 @@ namespace Core.Specs.CollectionScenarios.Service.IWantToRemoveUserStoryFromColle
         [ExpectedException(typeof(NullIdentityException), ExpectedMessage = "User story identity name was null when removing user story")]
         public void WithNullUserStoryIdentityItShouldThrowNullIdentityException()
         {
-            service.When(new RemoveUserStory { Identity = new CollectionIdentity(1) });
+            service.When(new RemoveUserStory { Identity = new CollectionIdentity("1") });
         } 
     }
 }
