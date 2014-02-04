@@ -16,6 +16,11 @@ namespace Core.Board.Collections
             this.state = state;
         }
 
+        public IIdentity Identity()
+        {
+            return state.Identity;
+        }
+
         public void Create(CollectionIdentity identity, string name, int wipLimit)
         {
             var created = new CollectionCreated(identity.Id, name, wipLimit);
@@ -44,6 +49,5 @@ namespace Core.Board.Collections
             Changes.Add(e);
             state.Mutate(e);
         }
-
     }
 }

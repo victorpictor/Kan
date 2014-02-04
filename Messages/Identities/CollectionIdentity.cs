@@ -5,7 +5,7 @@
         public CollectionIdentity(int id)
             : base(id)
         {
-            Tag = "qagg";
+            Tag = "cagg";
         }
 
         public int Get()

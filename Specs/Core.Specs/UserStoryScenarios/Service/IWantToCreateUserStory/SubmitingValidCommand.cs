@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Messages.Markers;
 using Messages.UserStory;
+using Messages.UserStory.Commands;
 using Messages.UserStory.Events;
 using NUnit.Framework;
 

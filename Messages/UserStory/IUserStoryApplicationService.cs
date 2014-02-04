@@ -1,4 +1,6 @@
-﻿namespace Messages.UserStory
+﻿using Messages.UserStory.Commands;
+
+namespace Messages.UserStory
 {
     public interface IUserStoryApplicationService
     {

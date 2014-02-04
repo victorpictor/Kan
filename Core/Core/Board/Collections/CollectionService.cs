@@ -28,7 +28,7 @@ namespace Core.Board.Collections
             var collection = new Collection(state);
             methodToCall(collection);
 
-            eventStore.AppendToStream(command.Identity,collection.Changes);
+            eventStore.AppendToStream(collection.Identity(), collection.Changes);
             eventsPublisher.Publish(collection.Changes);
         }
 

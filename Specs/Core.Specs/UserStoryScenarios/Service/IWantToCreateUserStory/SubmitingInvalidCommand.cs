@@ -1,6 +1,7 @@
 ﻿using Messages.Exception;
 using Messages.Identities;
 using Messages.UserStory;
+using Messages.UserStory.Commands;
 using NUnit.Framework;
 
 namespace Core.Specs.UserStoryScenarios.Service.IWantToCreateUserStory

@@ -1,7 +1,7 @@
 ﻿using Messages.Identities;
 using Messages.Markers;
 
-namespace Messages.UserStory
+namespace Messages.UserStory.Commands
 {
     public class EstimateUserStory: ICommand<UserStoryIdentity>
     {
