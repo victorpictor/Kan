@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Specs", "Specs\Core.Sp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messages", "Messages\Messages.csproj", "{3CE1BA51-21E1-4B0A-B8C8-29DEAE28621A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{B97CACCD-FE7A-4447-9C31-B4D78FAA14FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kan.Api", "Clients\Kan.Api\Kan.Api.csproj", "{DC7BF4DB-62D5-4BF2-93BC-ED2776A0513D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,11 +31,16 @@ Global
 		{3CE1BA51-21E1-4B0A-B8C8-29DEAE28621A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CE1BA51-21E1-4B0A-B8C8-29DEAE28621A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CE1BA51-21E1-4B0A-B8C8-29DEAE28621A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC7BF4DB-62D5-4BF2-93BC-ED2776A0513D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC7BF4DB-62D5-4BF2-93BC-ED2776A0513D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC7BF4DB-62D5-4BF2-93BC-ED2776A0513D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC7BF4DB-62D5-4BF2-93BC-ED2776A0513D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{48961231-40C0-412C-A08B-49D3C4ADD244} = {49CBB462-514F-4D0E-9205-364BCE6303EA}
+		{DC7BF4DB-62D5-4BF2-93BC-ED2776A0513D} = {B97CACCD-FE7A-4447-9C31-B4D78FAA14FB}
 	EndGlobalSection
 EndGlobal

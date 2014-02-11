@@ -5,7 +5,6 @@ namespace Messages.UserStory.Commands
 {
     public class CreateUserStory : ICommand<UserStoryIdentity>
     {
-        public string CorrelationId { get; set; }
         public UserStoryIdentity Identity { get; set; }
 
         public string Name { get; set; }

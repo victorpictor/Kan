@@ -11,3 +11,6 @@ Specs/Core.Specs/obj/*
 Messages/bin/*
 Messages/obj/*
 
+Clients/Kan.Api/bin/*
+Clients/Kan.Api/obj/*
+

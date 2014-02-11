@@ -34,7 +34,7 @@ namespace Core.WorkItems.UserStories
             var userStory = new UserStory(userStoryState);
             methodToCall(userStory);
 
-            eventStore.AppendToStream(command.Identity,userStory.Changes);
+            eventStore.AppendToStream(command.Identity, userStory.Changes);
             eventsPublisher.Publish(userStory.Changes);
         }
 
