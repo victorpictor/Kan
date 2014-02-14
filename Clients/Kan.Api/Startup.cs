@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Web.Http;
+﻿using System.Web.Http;
 using Microsoft.Owin;
 using Owin;
 
@@ -18,7 +17,7 @@ namespace Kan.Api
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            app.Use(config);
+            app.UseWebApi(config);
         }
 
         
