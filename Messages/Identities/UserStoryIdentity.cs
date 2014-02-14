@@ -12,5 +12,7 @@
         {
             return Id;
         }
+
+        public UserStoryIdentity(){}
     }
 }

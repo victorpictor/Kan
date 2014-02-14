@@ -11,7 +11,7 @@ namespace Messages.UserStory.Commands
             Points = points;
         }
 
-        public UserStoryIdentity Identity { get; private set; }
+        public UserStoryIdentity Identity { get; set; }
         public int Points { get; private set; }
     }
 }

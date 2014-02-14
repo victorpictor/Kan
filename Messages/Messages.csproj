@@ -66,6 +66,7 @@
     <Compile Include="UserStory\Events\UserStoryEstimated.cs" />
     <Compile Include="Identities\UserStoryIdentity.cs" />
     <Compile Include="UserStory\Events\UserStoryStateChanges.cs" />
+    <Compile Include="UserStory\UserStory.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
