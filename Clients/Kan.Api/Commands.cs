@@ -1,25 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using Messages.Identities;
+using System.Linq;
 using Messages.Markers;
-using Messages.UserStory.Commands;
 using Newtonsoft.Json;
 
 namespace Kan.Api
 {
     public class Commands
     {
-        public ICommand<UserStoryIdentity> UserStoryCommand(string type, string sCommand)
-        {
-            var commands = new Dictionary<string, Func<ICommand<UserStoryIdentity>>>
-                {
-                    {"CreateUserStory", () => JsonConvert.DeserializeObject<CreateUserStory>(sCommand)  },
-                    {"Messages.UserStory.Commands.CreateUserStory", () => JsonConvert.DeserializeObject<CreateUserStory>(sCommand)  },
-                    {"EstimateUserStory", () => JsonConvert.DeserializeObject<EstimateUserStory>(sCommand)  },
-                    {"Messages.UserStory.Commands.EstimateUserStory", () => JsonConvert.DeserializeObject<EstimateUserStory>(sCommand)  },
-                };
+        private List<Type> KnownComands = new List<Type>();
 
-            return commands[type]();
+        public Commands()
+        {
+            var commandType = typeof(ICommand);
+
+            KnownComands = AppDomain.CurrentDomain.GetAssemblies()
+                                 .SelectMany(s => s.GetTypes())
+                                 .Where(p => commandType.IsAssignableFrom(p) && p.IsClass).ToList();
+        }
+
+        public dynamic UserStoryCommand(string type, string sCommand)
+        {
+            var ct = KnownComands.Where(t => t.Name == type || t.FullName == type).Select(tt => tt).FirstOrDefault();
+
+            return JsonConvert.DeserializeObject(sCommand, ct);
         }
     }
 }

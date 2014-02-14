@@ -90,6 +90,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\Core\Core.csproj">
+      <Project>{A7C7E8D1-3A37-40BE-9754-074FCD0EBD96}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Messages\Messages.csproj">
       <Project>{3CE1BA51-21E1-4B0A-B8C8-29DEAE28621A}</Project>
       <Name>Messages</Name>

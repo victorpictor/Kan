@@ -1,7 +1,10 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Messages.UserStory;
+using Core.WorkItems.UserStories;
+using Messages.Exception;
+using UserStory = Messages.UserStory.UserStory;
 
 namespace Kan.Api.Controllers
 {
@@ -9,14 +12,40 @@ namespace Kan.Api.Controllers
     {
         public HttpResponseMessage Post(UserStory us)
         {
-            var command = new Commands().UserStoryCommand(us.DomainAction, us.Action.ToString());
+            try
+            {
+                var command = new Commands().UserStoryCommand(us.DomainAction, us.Action.ToString());
 
-            return new HttpResponseMessage(HttpStatusCode.Accepted);
+                new UserStoryService(null,null).When(command);
+            }
+            catch (PreconditionException pe)
+            {
+                return Request.CreateResponse(HttpStatusCode.PreconditionFailed, pe.Message);
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, e.Message);
+            }
+
+            return new HttpResponseMessage(HttpStatusCode.Created);
         }
 
         public HttpResponseMessage Put(UserStory us)
         {
-            var command = new Commands().UserStoryCommand(us.DomainAction, us.Action.ToString());
+            try
+            {
+                var command = new Commands().UserStoryCommand(us.DomainAction, us.Action.ToString());
+
+                new UserStoryService(null, null).When(command);
+            }
+            catch (PreconditionException pe)
+            {
+                return Request.CreateResponse(HttpStatusCode.PreconditionFailed, pe.Message);
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, e.Message);
+            }
 
             return new HttpResponseMessage(HttpStatusCode.Accepted);
         }

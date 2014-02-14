@@ -62,7 +62,18 @@ namespace Messages.Exception
         }
     }
 
-    public class NullIdentityException : System.Exception
+    public class PreconditionException : System.Exception
+    {
+        public PreconditionException()
+        {
+        }
+        public PreconditionException(string message)
+            : base(message)
+        {
+        }
+    }
+
+    public class NullIdentityException : PreconditionException
     {
         public NullIdentityException()
         {
@@ -74,7 +85,7 @@ namespace Messages.Exception
         }
     }
 
-    public class NullCommandException : System.Exception
+    public class NullCommandException : PreconditionException
     {
         public NullCommandException(string message)
             : base(message)
@@ -82,7 +93,7 @@ namespace Messages.Exception
         }
     }
 
-    public class IntValueException : System.Exception
+    public class IntValueException : PreconditionException
     {
         public IntValueException(string message)
             : base(message)
@@ -90,7 +101,7 @@ namespace Messages.Exception
         }
     }
 
-    public class StringValueException : System.Exception
+    public class StringValueException : PreconditionException
     {
         public StringValueException(string message)
             : base(message)

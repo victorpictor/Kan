@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Messages;
 using Messages.Exception;
 using Messages.Identities;
@@ -13,16 +12,13 @@ namespace Core.WorkItems.UserStories
     {
         private IEventStore eventStore;
         private IPublishEvents eventsPublisher;
-        protected IDomainIdentityService identities;
 
         public UserStoryService(
             IPublishEvents eventsPublisher, 
-            IEventStore eventStore,
-            IDomainIdentityService identities)
+            IEventStore eventStore)
         {
             this.eventsPublisher = eventsPublisher;
             this.eventStore = eventStore;
-            this.identities = identities;
         }
 
 

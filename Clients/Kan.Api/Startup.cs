@@ -20,7 +20,5 @@ namespace Kan.Api
             app.UseWebApi(config);
         }
 
-        
-
     }
 }
