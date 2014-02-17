@@ -3,7 +3,6 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Core.WorkItems.UserStories;
-using Messages.Exception;
 using UserStory = Messages.UserStory.UserStory;
 
 namespace Kan.Api.Controllers
@@ -18,13 +17,9 @@ namespace Kan.Api.Controllers
 
                 new UserStoryService(null,null).When(command);
             }
-            catch (PreconditionException pe)
-            {
-                return Request.CreateResponse(HttpStatusCode.PreconditionFailed, pe.Message);
-            }
             catch (Exception e)
             {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, e.Message);
+                return new HttpResponses().Create(Request, e);
             }
 
             return new HttpResponseMessage(HttpStatusCode.Created);
@@ -38,13 +33,9 @@ namespace Kan.Api.Controllers
 
                 new UserStoryService(null, null).When(command);
             }
-            catch (PreconditionException pe)
-            {
-                return Request.CreateResponse(HttpStatusCode.PreconditionFailed, pe.Message);
-            }
             catch (Exception e)
             {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, e.Message);
+                return new HttpResponses().Create(Request, e);
             }
 
             return new HttpResponseMessage(HttpStatusCode.Accepted);
