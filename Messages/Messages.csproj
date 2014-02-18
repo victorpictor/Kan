@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collection\Collection.cs" />
     <Compile Include="Collection\Commands\AddUserStory.cs" />
     <Compile Include="Collection\Commands\CreateCollection.cs" />
     <Compile Include="Collection\ICollectionApplicationService.cs" />
@@ -50,7 +51,6 @@
     <Compile Include="Exceptions\Ensure.cs" />
     <Compile Include="Identities\Identity.cs" />
     <Compile Include="Identities\CollectionIdentity.cs" />
-    <Compile Include="IPublishEvents.cs" />
     <Compile Include="ISendCommands.cs" />
     <Compile Include="Markers\ICommand.cs" />
     <Compile Include="Markers\IEvent.cs" />

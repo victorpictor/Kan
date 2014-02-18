@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Messages.Markers;
 
-namespace Messages
+namespace Core
 {
     public interface IPublishEvents
     {

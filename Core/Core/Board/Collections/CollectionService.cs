@@ -13,17 +13,15 @@ namespace Core.Board.Collections
        
         protected IEventStore eventStore;
         protected IPublishEvents eventsPublisher;
-        protected IDomainIdentityService identities;
-
+       
         public CollectionService(
             IEventStore eventStore, 
-            IPublishEvents eventsPublisher, 
-            IDomainIdentityService identities)
+            IPublishEvents eventsPublisher)
         {
             this.eventStore = eventStore;
             this.eventsPublisher = eventsPublisher;
-            this.identities = identities;
         }
+            
 
        public virtual void Update(ICommand<CollectionIdentity> command, Action<Collection> methodToCall)
         {

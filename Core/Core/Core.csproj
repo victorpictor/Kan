@@ -50,6 +50,7 @@
     <Compile Include="Board\Collections\CollectionState.cs" />
     <Compile Include="IEventStore.cs" />
     <Compile Include="IDomainIdentityService.cs" />
+    <Compile Include="IPublishEvents.cs" />
     <Compile Include="WorkItems\UserStories\UserStory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WorkItems\UserStories\UserStoryService.cs" />

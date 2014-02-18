@@ -13,7 +13,7 @@ namespace Kan.Api.Controllers
         {
             try
             {
-                var command = new Commands().UserStoryCommand(us.DomainAction, us.Action.ToString());
+                var command = new Commands().Create(us.DomainAction, us.Action.ToString());
 
                 new UserStoryService(null,null).When(command);
             }
@@ -29,7 +29,7 @@ namespace Kan.Api.Controllers
         {
             try
             {
-                var command = new Commands().UserStoryCommand(us.DomainAction, us.Action.ToString());
+                var command = new Commands().Create(us.DomainAction, us.Action.ToString());
 
                 new UserStoryService(null, null).When(command);
             }

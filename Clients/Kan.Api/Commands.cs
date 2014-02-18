@@ -19,7 +19,7 @@ namespace Kan.Api
                                  .Where(p => commandType.IsAssignableFrom(p) && p.IsClass).ToList();
         }
 
-        public dynamic UserStoryCommand(string type, string sCommand)
+        public dynamic Create(string type, string sCommand)
         {
             var ct = KnownComands.Where(t => t.Name == type || t.FullName == type).Select(tt => tt).FirstOrDefault();
 

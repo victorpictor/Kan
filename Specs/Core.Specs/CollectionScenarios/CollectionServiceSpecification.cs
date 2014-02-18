@@ -12,8 +12,7 @@ namespace Core.Specs.CollectionScenarios
 
         protected InMemoryEventStore eventStore;
         protected InMemoryPublisher eventsPublisher;
-        protected IdentityGenerator identities;
-
+       
         protected CollectionIdentity Identity;
 
         protected override void Given()
@@ -22,9 +21,8 @@ namespace Core.Specs.CollectionScenarios
 
             eventStore = new InMemoryEventStore();
             eventsPublisher = new InMemoryPublisher();
-            identities = new IdentityGenerator();
-
-            service = new CollectionService(eventStore, eventsPublisher, identities);
+            
+            service = new CollectionService(eventStore, eventsPublisher);
         }
 
     }
