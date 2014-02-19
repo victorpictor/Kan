@@ -1,4 +1,6 @@
 ﻿using System.Web.Http;
+using System.Web.Http.Filters;
+using Kan.Api.Response;
 using Microsoft.Owin;
 using Owin;
 
@@ -17,8 +19,13 @@ namespace Kan.Api
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            config.Filters.Add(new HandleError());
+            
             app.UseWebApi(config);
+           
         }
 
     }
+
+    
 }

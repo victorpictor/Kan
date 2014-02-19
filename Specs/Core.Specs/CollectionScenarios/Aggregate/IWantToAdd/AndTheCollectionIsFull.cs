@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Core.Board.Collections;
 using Messages.Collection.Events;
-using Messages.Exception;
+using Messages.Exceptions;
 using Messages.Identities;
 using Messages.Markers;
 using NUnit.Framework;

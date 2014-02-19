@@ -1,4 +1,4 @@
-﻿using Messages.Exception;
+﻿using Messages.Exceptions;
 
 namespace Messages.Identities
 {

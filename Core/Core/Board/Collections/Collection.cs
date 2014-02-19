@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Messages.Collection.Events;
-using Messages.Exception;
+using Messages.Exceptions;
 using Messages.Identities;
 using Messages.Markers;
 

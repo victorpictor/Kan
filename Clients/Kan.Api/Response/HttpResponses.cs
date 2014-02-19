@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
-using Messages.Exception;
+using Messages.Exceptions;
 
-namespace Kan.Api
+namespace Kan.Api.Response
 {
     public class HttpResponses
     {

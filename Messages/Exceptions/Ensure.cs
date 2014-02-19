@@ -1,7 +1,7 @@
 ﻿using System;
 using Messages.Markers;
 
-namespace Messages.Exception
+namespace Messages.Exceptions
 {
     public class Throw
     {

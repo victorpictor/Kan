@@ -1,8 +1,7 @@
 ﻿using System;
-using Messages;
 using Messages.Collection;
 using Messages.Collection.Commands;
-using Messages.Exception;
+using Messages.Exceptions;
 using Messages.Identities;
 using Messages.Markers;
 

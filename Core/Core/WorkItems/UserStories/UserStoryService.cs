@@ -1,6 +1,5 @@
 ﻿using System;
-using Messages;
-using Messages.Exception;
+using Messages.Exceptions;
 using Messages.Identities;
 using Messages.Markers;
 using Messages.UserStory;

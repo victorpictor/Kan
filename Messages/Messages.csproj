@@ -51,7 +51,6 @@
     <Compile Include="Exceptions\Ensure.cs" />
     <Compile Include="Identities\Identity.cs" />
     <Compile Include="Identities\CollectionIdentity.cs" />
-    <Compile Include="ISendCommands.cs" />
     <Compile Include="Markers\ICommand.cs" />
     <Compile Include="Markers\IEvent.cs" />
     <Compile Include="Markers\IMessage.cs" />

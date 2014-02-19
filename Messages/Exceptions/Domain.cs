@@ -1,4 +1,4 @@
-﻿namespace Messages.Exception
+﻿namespace Messages.Exceptions
 {
     public class Domain
     {

@@ -1,6 +1,5 @@
 ﻿using Messages.Collection.Commands;
-using Messages.Exception;
-using Messages.Identities;
+using Messages.Exceptions;
 using NUnit.Framework;
 
 namespace Core.Specs.CollectionScenarios.Service.IWantToCreateCollection

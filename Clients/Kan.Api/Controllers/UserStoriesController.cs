@@ -3,25 +3,20 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Core.WorkItems.UserStories;
+using Kan.Api.Response;
 using UserStory = Messages.UserStory.UserStory;
 
 namespace Kan.Api.Controllers
 {
+    [HandleError]
     public class UserStoriesController : ApiController
     {
         public HttpResponseMessage Post(UserStory us)
         {
-            try
-            {
-                var command = new Commands().Create(us.DomainAction, us.Action.ToString());
+            var command = new Commands().Create(us.DomainAction, us.Action.ToString());
 
-                new UserStoryService(null,null).When(command);
-            }
-            catch (Exception e)
-            {
-                return new HttpResponses().Create(Request, e);
-            }
-
+            new UserStoryService(null,null).When(command);
+            
             return new HttpResponseMessage(HttpStatusCode.Created);
         }
 
