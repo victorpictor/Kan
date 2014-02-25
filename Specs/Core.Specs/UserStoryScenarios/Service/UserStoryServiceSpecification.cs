@@ -20,7 +20,7 @@ namespace Core.Specs.UserStoryScenarios.Service
             eventStore = new InMemoryEventStore();
             eventsPublisher = new InMemoryPublisher();
             
-            service = new UserStoryService(eventsPublisher, eventStore);      
+            service = new UserStoryService(eventStore, eventsPublisher);      
         }
     }
 }

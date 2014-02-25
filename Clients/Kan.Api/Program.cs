@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Owin.Hosting;
 
 namespace Kan.Api
 {
@@ -6,7 +7,7 @@ namespace Kan.Api
     {
         static void Main(string[] args)
         {
-            using (Microsoft.Owin.Hosting.WebApp.Start<Startup>("http://localhost:9000"))
+            using (WebApp.Start<ApiStartup>("http://localhost:9000"))
             {
                 Console.WriteLine("Press [enter] to quit...");
                 Console.ReadLine();

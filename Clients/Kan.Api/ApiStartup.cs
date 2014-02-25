@@ -4,10 +4,10 @@ using Kan.Api.Response;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(Kan.Api.Startup))]
+[assembly: OwinStartup(typeof(Kan.Api.ApiStartup))]
 namespace Kan.Api
 {
-    public class Startup
+    public class ApiStartup
     {
         public void Configuration(IAppBuilder app)
         {

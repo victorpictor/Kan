@@ -13,8 +13,8 @@ namespace Core.WorkItems.UserStories
         private IPublishEvents eventsPublisher;
 
         public UserStoryService(
-            IPublishEvents eventsPublisher, 
-            IEventStore eventStore)
+            IEventStore eventStore,
+            IPublishEvents eventsPublisher)
         {
             this.eventsPublisher = eventsPublisher;
             this.eventStore = eventStore;
