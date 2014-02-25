@@ -1,7 +1,6 @@
 ﻿using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Core.WorkItems.UserStories;
 using Kan.Api.Response;
 using UserStory = Messages.UserStory.UserStory;
 
@@ -10,11 +9,20 @@ namespace Kan.Api.Controllers
     [HandleError]
     public class UserStoriesController : ApiController
     {
+        private Container container;
+
+        public UserStoriesController()
+        {
+            container = new Container();
+        }
+
         public HttpResponseMessage Post(UserStory us)
         {
             var command = new Commands().Create(us.DomainAction, us.Action.ToString());
 
-            new UserStoryService(null, null).When(command);
+            container
+                .UserStoryApplicationService()
+                .When(command);
 
             return new HttpResponseMessage(HttpStatusCode.Created);
         }
@@ -23,7 +31,9 @@ namespace Kan.Api.Controllers
         {
             var command = new Commands().Create(us.DomainAction, us.Action.ToString());
 
-            new UserStoryService(null, null).When(command);
+            container
+                .UserStoryApplicationService()
+                .When(command);
 
             return new HttpResponseMessage(HttpStatusCode.Accepted);
         }
