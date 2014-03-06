@@ -39,6 +39,9 @@
     <Reference Include="clrzmq-ext">
       <HintPath>..\lib\clrzmq-ext.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,7 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bus.cs" />
+    <Compile Include="IBroadcastEvents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serializer.cs" />
+    <Compile Include="ZeroMq\Broadcaster.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core\Core.csproj">
