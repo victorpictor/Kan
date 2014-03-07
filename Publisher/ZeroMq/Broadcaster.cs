@@ -9,7 +9,7 @@ namespace Publisher.ZeroMq
         private void Broadcasts(byte[] message)
         {
             using (var context = new Context(1))
-            using (var socket = context.Socket(SocketType.REQ))
+            using (var socket = context.Socket(SocketType.PUB))
             {
                 socket.Connect("ipc:///kan/events");
 

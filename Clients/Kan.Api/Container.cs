@@ -3,6 +3,7 @@ using Core.Board.Collections;
 using Core.WorkItems.UserStories;
 using Messages.Collection;
 using Messages.UserStory;
+using Publisher;
 using Store;
 
 namespace Kan.Api
@@ -16,7 +17,7 @@ namespace Kan.Api
 
         public IPublishEvents Publisher()
         {
-            return null;
+            return new Bus(new Publisher.ZeroMq.Broadcaster());
         }
 
         public ICollectionApplicationService CollectionApplicationService()

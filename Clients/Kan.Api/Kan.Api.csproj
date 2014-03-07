@@ -101,6 +101,10 @@
       <Project>{3CE1BA51-21E1-4B0A-B8C8-29DEAE28621A}</Project>
       <Name>Messages</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Publisher\Publisher.csproj">
+      <Project>{b96ee70c-e6d2-47b3-b072-094f07e5a9ad}</Project>
+      <Name>Publisher</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Store\Store.csproj">
       <Project>{4aeeddc8-77ba-4327-80e6-553c080cfb95}</Project>
       <Name>Store</Name>
