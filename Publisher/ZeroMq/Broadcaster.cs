@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Messages.Markers;
-using ZMQ;
+using NetMQ;
 
 namespace Publisher.ZeroMq
 {
@@ -8,12 +8,14 @@ namespace Publisher.ZeroMq
     {
         private void Broadcasts(byte[] message)
         {
-            using (var context = new Context(1))
-            using (var socket = context.Socket(SocketType.PUB))
+            using (var ctx = NetMQContext.Create())
             {
-                socket.Connect("ipc:///kan/events");
+                using (var server = ctx.CreatePublisherSocket())
+                {
+                    server.Bind("tcp://127.0.0.1:5556");
 
-                socket.Send(message);
+                    server.Send(message);
+                }
             }
         }
 

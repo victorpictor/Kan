@@ -1,5 +1,6 @@
-Kan.v11.suo
-Kan.sln.DotSettings.user
+*.suo
+*.user
+*.DotSettings
 
 Core/Core/bin/*
 Core/Core/obj/*
