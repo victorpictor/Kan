@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using NetMQ;
 
 namespace Publisher.Tests.ZeroMq
@@ -8,26 +9,33 @@ namespace Publisher.Tests.ZeroMq
     {
         private readonly List<string> subscribeTo = new List<string>();
 
+        private NetMQContext context;
+        private NetMQSocket server;
+
         public Subscriber(params string[] messageKeys)
         {
-            if (messageKeys!= null && messageKeys.Length > 0)
+            if (messageKeys != null && messageKeys.Length > 0)
                 subscribeTo.AddRange(messageKeys.ToList());
-            
+
+            context = NetMQContext.Create();
+            server = context.CreateSubscriberSocket();
+            server.Connect("tcp://127.0.0.1:5002");
+
+            subscribeTo.ForEach(server.Subscribe);
+
+            Thread.Sleep(500);
         }
 
-        private object Receive(out bool more)
+        ~Subscriber()
         {
-            using (var ctx = NetMQContext.Create())
-            {
-                using (var server = ctx.CreateSubscriberSocket())
-                {
-                    subscribeTo.ForEach(server.Subscribe);
+            server.Dispose();
+            context.Dispose();
+        }
 
-                    server.Bind("tcp://127.0.0.1:5556");
-
-                    return server.Receive(out more);
-                }
-            }
-        } 
+        public object Receive(out bool more)
+        {
+            var r = server.ReceiveString(out more);
+            return r;
+        }
     }
 }

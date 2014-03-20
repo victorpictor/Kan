@@ -5,9 +5,9 @@ namespace Publisher
 {
     public class Serializer
     {
-        public byte[] Serialize<T>(T messageObject)
+        public string Serialize<T>(T messageObject)
         {
-           return Encoding.ASCII.GetBytes(JsonConvert.SerializeObject(messageObject));
+           return JsonConvert.SerializeObject(messageObject);
         }
     }
 }

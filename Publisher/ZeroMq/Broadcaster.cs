@@ -6,17 +6,20 @@ namespace Publisher.ZeroMq
 {
     public class Broadcaster: IBroadcastEvents
     {
-        private void Broadcasts(byte[] message)
-        {
-            using (var ctx = NetMQContext.Create())
-            {
-                using (var server = ctx.CreatePublisherSocket())
-                {
-                    server.Bind("tcp://127.0.0.1:5556");
+        private NetMQContext ctx;
+        private NetMQSocket server;
 
-                    server.Send(message);
-                }
-            }
+        public Broadcaster()
+        {
+            ctx = NetMQContext.Create();
+            server = ctx.CreatePublisherSocket();
+            server.Bind("tcp://127.0.0.1:5002");
+        }
+
+        private void Broadcasts(string message)
+        {
+            server.Send(message);
+            
         }
 
         public void Broadcasts(IEvent message)
