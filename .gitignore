@@ -23,3 +23,6 @@ Store/obj/*
 Publisher/bin/*
 Publisher/obj/*
 
+Integration/Publisher.Tests/bin/*
+Integration/Publisher.Tests/bin/*
+
