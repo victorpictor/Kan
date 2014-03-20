@@ -35,6 +35,10 @@ namespace Publisher.Tests.ZeroMq
         public object Receive(out bool more)
         {
             var r = server.ReceiveString(out more);
+
+            if (more)
+                return server.ReceiveString(out more);
+            
             return r;
         }
     }

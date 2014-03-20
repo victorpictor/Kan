@@ -5,8 +5,7 @@ using Publisher.ZeroMq;
 
 namespace Publisher.Tests.ZeroMq
 {
-
-    public class Having1SubscriberFrom2SubscribedToAMessage : Specification
+    public class Having2SubscribersSubscribedToAMessage : Specification
     {
         private Broadcaster broadcaster;
         private Subscriber subs1;
@@ -23,31 +22,28 @@ namespace Publisher.Tests.ZeroMq
             broadcaster = new Broadcaster();
 
             subs1 = new Subscriber("CollectionCreated");
-            subs2 = new Subscriber("UserStoryRemoved");
+            subs2 = new Subscriber("CollectionCreated");
         }
 
         protected override void When()
         {
             broadcaster.Broadcasts(new CollectionCreated(Guid.NewGuid().ToString(), "To do", 5));
-            broadcaster.Broadcasts(new UserStoryRemoved(Guid.NewGuid().ToString()));
-
+            
             first = subs1.Receive(out noMoreForFirst);
             second = subs2.Receive(out noMoreForSecond);
         }
-        
-       
-        [Test]
-        public void OneShouldReceiveTheMessageOnce()
-        {
-            Assert.IsInstanceOf<CollectionCreated>(first);
-            Assert.IsFalse(noMoreForFirst);
-        }
+
 
         [Test]
-        public void TheOtherOneShouldNoteReceiveAnything()
+        public void BothShouldReceiveTheMessageOnce()
         {
-            Assert.IsInstanceOf<UserStoryRemoved>(second);
             Assert.IsFalse(noMoreForFirst);
+            Assert.IsFalse(noMoreForSecond);
+
+            Assert.IsInstanceOf<CollectionCreated>(first);
+            Assert.IsInstanceOf<CollectionCreated>(second);
         }
+
+       
     }
 }

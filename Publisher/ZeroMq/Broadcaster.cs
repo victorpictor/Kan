@@ -16,20 +16,19 @@ namespace Publisher.ZeroMq
             server.Bind("tcp://127.0.0.1:5002");
         }
 
-        private void Broadcasts(string message)
+        private void Broadcasts(string name, string message)
         {
-            server.Send(message);
-            
+            server.SendMessage(new NetMQMessage(new[]{new NetMQFrame(name), new NetMQFrame(message)}));
         }
 
         public void Broadcasts(IEvent message)
         {
-            Broadcasts(new Serializer().Serialize(message));
+            Broadcasts(message.GetType().Name, new Serializer().Serialize(message));
         }
 
         public void Broadcasts(List<IEvent> messages)
         {
-            Broadcasts(new Serializer().Serialize(messages));
+            messages.ForEach(Broadcasts);
         }
     }
 }
