@@ -2,27 +2,6 @@
 *.user
 *.DotSettings
 
-Core/Core/bin/*
-Core/Core/obj/*
-
-Specs/Core.Specs/bin/*
-Specs/Core.Specs/obj/*
-
-Messages/bin/*
-Messages/obj/*
-
-Clients/Kan.Api/bin/*
-Clients/Kan.Api/obj/*
-
-Specs/Kan.Api.Specs/bin/*
-Specs/Kan.Api.Specs/obj/*
-
-Store/bin/*
-Store/obj/*
-
-Publisher/bin/*
-Publisher/obj/*
-
-Integration/Publisher.Tests/bin/*
-Integration/Publisher.Tests/obj/*
+bin/
+obj/
 
