@@ -22,6 +22,5 @@ namespace Publisher
         {
             broadcaster.Broadcasts(es);
         }
-        
     }
 }
