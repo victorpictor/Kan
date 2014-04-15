@@ -53,9 +53,9 @@
   <ItemGroup>
     <Compile Include="Specification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ZeroMq\Having1SubscriberFrom2SubscribedToAMessage.cs" />
-    <Compile Include="ZeroMq\Having2SubscribersSubscribedToAMessage.cs" />
-    <Compile Include="ZeroMq\Subscriber.cs" />
+    <Compile Include="ZeroMqBroadcaster\Having1SubscriberFrom2SubscribedToAMessage.cs" />
+    <Compile Include="ZeroMqBroadcaster\Having2SubscribersSubscribedToAMessage.cs" />
+    <Compile Include="ZeroMqBroadcaster\Subscriber.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Core\Core.csproj">

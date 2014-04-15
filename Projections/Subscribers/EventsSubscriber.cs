@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Messages.Markers;
 
 namespace Projections.Subscribers
@@ -7,6 +6,7 @@ namespace Projections.Subscribers
     public abstract class EventsSubscriber
     {
         private IReceiver receriver;
+        private bool stopped;
 
         protected EventsSubscriber(IReceiver receriver, params Type[] eventTypes)
         {
@@ -17,7 +17,7 @@ namespace Projections.Subscribers
 
         public virtual void Start()
         {
-            while (true)
+            while (!stopped)
             {
                 var e = receriver.Receive();
                 React(e);
@@ -26,6 +26,7 @@ namespace Projections.Subscribers
 
         public virtual void Stop()
         {
+            stopped = true;
         }
 
         public abstract void React(IEvent e);

@@ -1,9 +1,10 @@
 ﻿using System;
 using Messages.Collection.Events;
 using NUnit.Framework;
+using Publisher.Tests.ZeroMq;
 using Publisher.ZeroMq;
 
-namespace Publisher.Tests.ZeroMq
+namespace Publisher.Tests.ZeroMqBroadcaster
 {
 
     public class Having1SubscriberFrom2SubscribedToAMessage : Specification
