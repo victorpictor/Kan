@@ -19,7 +19,7 @@ namespace Publisher.Tests.ZeroMq
 
             context = NetMQContext.Create();
             server = context.CreateSubscriberSocket();
-            server.Connect("tcp://127.0.0.1:5002");
+            server.Connect("tcp://127.0.0.1:5003");
 
             subscribeTo.ForEach(server.Subscribe);
 

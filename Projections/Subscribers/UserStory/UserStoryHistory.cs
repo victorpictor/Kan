@@ -1,13 +1,17 @@
 ﻿using System;
 using Messages.Markers;
 using Messages.UserStory.Events;
+using Projections.Writers;
 
 namespace Projections.Subscribers.UserStory
 {
     public class UserStoryHistory: EventsSubscriber
     {
-        public UserStoryHistory(IReceiver receriver, params Type[] eventTypes) : base(receriver, eventTypes)
+        private IUserStoryWriter writer;
+
+        public UserStoryHistory(IReceiver receriver, IUserStoryWriter writer, params Type[] eventTypes) : base(receriver, eventTypes)
         {
+            this.writer = writer;
         }
 
         public override void React(IEvent e)

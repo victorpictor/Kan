@@ -13,7 +13,7 @@ namespace Publisher.ZeroMq
         {
             ctx = NetMQContext.Create();
             server = ctx.CreatePublisherSocket();
-            server.Bind("tcp://127.0.0.1:5002");
+            server.Bind("tcp://127.0.0.1:5003");
         }
 
         private void Broadcasts(string name, string message)

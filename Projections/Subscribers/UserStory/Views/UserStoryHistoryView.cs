@@ -12,8 +12,6 @@ namespace Projections.Subscribers.UserStory.Views
 
     public struct Modification
     {
-        public Guid CollectionId;
-
         public DateTime RecordedOn;
 
         public string Text;

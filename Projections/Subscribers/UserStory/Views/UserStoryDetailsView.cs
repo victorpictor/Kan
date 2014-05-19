@@ -13,6 +13,5 @@ namespace Projections.Subscribers.UserStory.Views
         public string Description { get; set; }
 
         public Guid AssignedTo { get; set; }
-
     }
 }
